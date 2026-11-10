@@ -15,4 +15,6 @@ Slots`, kept as a subscription (its district and zone overrides follow game patc
   `@BPV_CITY_ZONES`), first definition wins; the core's help files explain them
   (`steamapps/workshop/content/281990/3576125834/help/`).
 
-## Status (2026-11-10): 0.2.0 — the add-ons folded in, untested. 0.1.3 checked in game: Colony Production beside the city district, Build Queue moved up (screenshot `2026_11_10_6`). 0.1.2 checked in game — 8 government slots as 2×4, district cubes under them, specialization zones 1×4, rural zones 2×2, nothing overlapping (screenshot `2026_11_10_5`; 0.1.0: `_1`, UIOD and the BPVR modes for comparison: `_2`–`_4`)
+## Status (2026-11-10): 0.2.1 — no city district scrollbar, untested; 0.2.0's folded add-ons untested.
+The layout (0.1.3 or 0.2.0) checked on an arkship, a volcanic capital, an orbital habitat and a shattered ring segment
+(screenshots `2026_11_10_7`–`_10`): same layout on each, one main district, up to 27 cubes fit. 0.1.3 checked in game: Colony Production beside the city district, Build Queue moved up (screenshot `2026_11_10_6`). 0.1.2 checked in game — 8 government slots as 2×4, district cubes under them, specialization zones 1×4, rural zones 2×2, nothing overlapping (screenshot `2026_11_10_5`; 0.1.0: `_1`, UIOD and the BPVR modes for comparison: `_2`–`_4`)

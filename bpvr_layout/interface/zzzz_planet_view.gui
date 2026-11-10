@@ -30,11 +30,11 @@
 
 # The inner scroll area size of main district, should contains all zones and rows
 # Currently must larger than 20 rows, each row 52 height + some margin)
-@main_district_scroll_x = 1200
+@main_district_scroll_x = 208 # BPVR-Layout: 178 + @main_district_size_dy — the city district's content is as tall as its window, so no scrollbar shows (BPVR: 1200, room for 10 zones)
 
 # Primary zone size change
 @primary_zone_size_x = 216 # BPVR-Layout: 50(slot width) * 4 + 2(gutter) * 3 + 5(margin) * 2 (BPVR: 320, 6 slots)
-@primary_zone_size_y = 1048 # 50(slot height) * 20 + 2(gutter height) * 19 + 5(margin) * 2
+@primary_zone_size_y = 112 # BPVR-Layout: 2 rows — 50 * 2 + 2 + 5 * 2; the district cubes start right below, at y = 147 (BPVR: 1048, 20 rows)
 @primary_zone_slot_h = 4 # BPVR-Layout: 8 government slots as 2 rows of 4 (BPVR: 6)
 
 # Sencondary zone size and location change
@@ -5582,7 +5582,7 @@ guiTypes = {
 	# 3 width
 	containerWindowType = {
 		name = "planet_district_entry_width_3"
-		size = { width = @[570 + main_district_size_dx - 5] height = 260 } # BPVR-Layout: follows the district width (BPVR: 865)
+		size = { width = @[570 + main_district_size_dx - 5] height = @main_district_scroll_x } # BPVR-Layout: follows the district width and height (BPVR: 865 x 260)
 		background = {
 			name = "districts_window_background"
 			spriteType = "GFX_invisible"
@@ -5595,12 +5595,12 @@ guiTypes = {
 		buttonType = {
 			name = "selection_highlight"
 			spriteType = "GFX_glow_tile_orange_no_padding"
-			size = { x = @[570 + main_district_size_dx - 5] y = 260 } # BPVR-Layout: follows the district width (BPVR: 865)
+			size = { x = @[570 + main_district_size_dx - 5] y = @main_district_scroll_x } # BPVR-Layout: follows the district width and height (BPVR: 865 x 260)
 			alwaysTransparent = yes
 		}
 		buttonType = {
 			name = "district_button"
-			size = { x = @[570 + main_district_size_dx - 5] y = 260 } # BPVR-Layout: follows the district width (BPVR: 865)
+			size = { x = @[570 + main_district_size_dx - 5] y = @main_district_scroll_x } # BPVR-Layout: follows the district width and height (BPVR: 865 x 260)
 			quadTextureSprite = "GFX_district_hover"
 			clicksound = "menu_slide_open"
 		}

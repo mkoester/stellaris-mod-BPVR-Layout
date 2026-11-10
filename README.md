@@ -38,6 +38,10 @@ Changes in `interface/zzzz_planet_view.gui` (top of file, nothing else touched):
   district, at `y = 107` for every resolution. `@build_queue_offset_y` 185 → 0: the side column's
   Build Queue gets that room back. The `planet_district_entry_width_3` entry's fixed 865 follows
   the district width now.
+- No scrollbar in the city district: `@main_district_scroll_x` 1200 → 208 (its window's height)
+  and `@primary_zone_size_y` 1048 → 112 (2 rows). BPVR sized both for 10 zones and 20 rows; ours
+  are fixed at 3 and 2. The scrollbar stays defined, so content that does not fit still scrolls.
+  The rural districts' scrollbar stays as in UIOD.
 
 ## Playset
 
