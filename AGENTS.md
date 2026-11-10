@@ -7,6 +7,8 @@ Slots`, kept as a subscription (its district and zone overrides follow game patc
 `common/scripted_variables/!!!bpvr_layout_settings.txt`) and `BPV Reborn - Zone Single Row Mode`; what, why and the playset: `README.md`. **Never published**
 — the GUI files are modified copies of another author's mod. Workspace context: `../AGENTS.md`.
 
+- No remote (2026-11-10), so not in the workspace's `bootstrap.sh`: this machine's checkout is
+  the only copy until a private remote is created.
 - Only `bpvr_layout/` gets linked into the game: `scripts/link-mod.sh
   stellaris-mod-BPVR-Layout/bpvr_layout` from the workspace root, launcher closed.
 - Keep the GUI files byte-identical to Single Row Mode except lines marked `# BPVR-Layout` (one of them heads the pop job info block, taken whole from UIOD 4.5), so an
