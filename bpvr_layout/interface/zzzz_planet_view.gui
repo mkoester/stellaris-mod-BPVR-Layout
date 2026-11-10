@@ -19,13 +19,13 @@
 # move the planet resources box to the side window
 @resource_offset_x = 0 # BPVR-Layout: Colony Production back beside the city district, as in UIOD (BPVR: 315, in the side column)
 @resource_offset_y = 0 # BPVR-Layout (BPVR: -190)
-@resource_box_width = 190 # BPVR-Layout: the room right of the city zones — 880 - 682 - margins (UIOD: 300)
+@resource_box_width = 206 # BPVR-Layout: the room right of the city zones — 880 - 666 - margins (UIOD: 300)
 
 # Move down the build queue to leave space for resources, also shrink the inner space accordingly
 @build_queue_offset_y = 0 # BPVR-Layout: the side column no longer holds Colony Production (BPVR: 185)
 
 # Widen the districts window, also shrink the sencodary districts space
-@main_district_size_dx = 112 # BPVR-Layout: city district 682 wide — zones end at 316 + 346 = 662, plus the scrollbar (BPVR: 310)
+@main_district_size_dx = 96 # BPVR-Layout: city district 666 wide — zones end at 316 + 346 = 662; no scrollbar since 0.2.1 (BPVR: 310)
 @main_district_size_dy = 30 # BPVR-Layout: city district 208 px tall — 3 zone rows end at 194; district cubes moved under the government zone (BPVR: 70)
 
 # The inner scroll area size of main district, should contains all zones and rows

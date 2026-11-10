@@ -32,9 +32,9 @@ Changes in `interface/zzzz_planet_view.gui` (top of file, nothing else touched):
   below get the room.
 - `@secondary_district_slot_h` 3 → 2 — a generator / mining / farming district's zone shows its
   4 slots as 2×2; a row of 4 would not fit the 285 px district box.
-- Colony Production back beside the city district, as in UIOD: `@main_district_size_dx` 310 → 112
-  (city district 682 wide, its zones end at 662), `@resource_offset_x/_y` 0, the box
-  `@resource_box_width = 190` wide (UIOD: 300; its texts wrap instead) and as tall as the city
+- Colony Production back beside the city district, as in UIOD: `@main_district_size_dx` 310 → 96
+  (city district 666 wide, its zones end at 662), `@resource_offset_x/_y` 0, the box
+  `@resource_box_width = 206` wide (UIOD: 300; its texts wrap instead) and as tall as the city
   district, at `y = 107` for every resolution. `@build_queue_offset_y` 185 → 0: the side column's
   Build Queue gets that room back. The `planet_district_entry_width_3` entry's fixed 865 follows
   the district width now.
