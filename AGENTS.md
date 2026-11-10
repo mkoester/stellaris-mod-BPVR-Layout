@@ -13,4 +13,4 @@ slots in 2 rows of 4 and one row of 4 in every other zone. Replaces `BPVR - City
   `@BPV_CITY_ZONES`), first definition wins; the core's help files explain them
   (`steamapps/workshop/content/281990/3576125834/help/`).
 
-## Status (2026-11-10): 0.1.2 — 0.1.0 checked in game (2×4 and 1×4 work, screenshots `2026_11_10_1`–`4`); 0.1.2 compacts the city district and makes rural zones 2×2, untested
+## Status (2026-11-10): 0.1.2 checked in game — 8 government slots as 2×4, district cubes under them, specialization zones 1×4, rural zones 2×2, nothing overlapping (screenshot `2026_11_10_5`; 0.1.0: `_1`, UIOD and the BPVR modes for comparison: `_2`–`_4`)
