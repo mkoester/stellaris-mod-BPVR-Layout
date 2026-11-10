@@ -4607,7 +4607,7 @@ guiTypes = {
 					}
 					containerWindowType = {
 						name = "force_scroll"
-						size = { width = 100%% height = 256 }
+						size = { width = 100%% height = 280 } # BPVR-Layout: pop job info block (to "overlord_upkeep") taken from UI Overhaul Dynamic 4.5 — "pop_factions" + "wanted_factions" replace 4.4's "pop_faction" (BPVR: 256)
 					}
 					instantTextBoxType = {
 						name = "job_type"
@@ -4630,7 +4630,7 @@ guiTypes = {
 						format = left
 					}
 					instantTextBoxType = {
-						name = "pop_faction"
+						name = "pop_factions"
 						font = "font_text_14"
 						text = "Faction: Peaceful Progress Network"
 						position = { x = 10 y = 40 }
@@ -4640,10 +4640,20 @@ guiTypes = {
 						format = left
 					}
 					instantTextBoxType = {
+						name = "wanted_factions"
+						font = "font_text_14"
+						text = "Hoped Faction: Progressist"
+						position = { x = 10 y = 60 }
+						maxWidth = 390
+						maxHeight = 16
+						fixedSize = yes
+						format = left
+					}
+					instantTextBoxType = {
 						name = "happiness"
 						font = "font_text_14"
 						text = "Happiness: 50%"
-						position = { x = 10 y = 60 }
+						position = { x = 10 y = 80 }
 						maxWidth = 390
 						maxHeight = 16
 						fixedSize = yes
@@ -4653,7 +4663,7 @@ guiTypes = {
 						name = "political_power"
 						font = "font_text_14"
 						text = "Political Power: 0.5"
-						position = { x = 10 y = 80 }
+						position = { x = 10 y = 100 }
 						maxWidth = 390
 						maxHeight = 16
 						fixedSize = yes
@@ -4663,7 +4673,7 @@ guiTypes = {
 						name = "crime"
 						font = "font_text_14"
 						text = "Crime: 1.7"
-						position = { x = 10 y = 100 }
+						position = { x = 10 y = 120 }
 						maxWidth = 390
 						maxHeight = 16
 						fixedSize = yes
@@ -4673,7 +4683,7 @@ guiTypes = {
 						name = "empire_sprawl"
 						font = "font_text_14"
 						text = "Empire Sprawl: 1"
-						position = { x = 10 y = 120 }
+						position = { x = 10 y = 140 }
 						maxWidth = 390
 						maxHeight = 16
 						fixedSize = yes
@@ -4683,7 +4693,7 @@ guiTypes = {
 						name = "housing_needs"
 						font = "font_text_14"
 						text = "Housing Needs: 2"
-						position = { x = 10 y = 140 }
+						position = { x = 10 y = 160 }
 						maxWidth = 390
 						maxHeight = 16
 						fixedSize = yes
@@ -4693,7 +4703,7 @@ guiTypes = {
 						name = "amenities_usage"
 						font = "font_text_14"
 						text = "Amenities Usage: 2"
-						position = { x = 10 y = 160 }
+						position = { x = 10 y = 180 }
 						maxWidth = 390
 						maxHeight = 16
 						fixedSize = yes
@@ -4703,7 +4713,7 @@ guiTypes = {
 						name = "production"
 						font = "font_text_14"
 						text = "12 minerals"
-						position = { x = 10 y = 180 }
+						position = { x = 10 y = 200 }
 						maxWidth = 390
 						maxHeight = 16
 						fixedSize = yes
@@ -4714,7 +4724,7 @@ guiTypes = {
 						name = "upkeep"
 						font = "font_text_14"
 						text = "5 energy"
-						position = { x = 10 y = 200 }
+						position = { x = 10 y = 220 }
 						maxWidth = 390
 						maxHeight = 16
 						fixedSize = yes
@@ -4724,7 +4734,7 @@ guiTypes = {
 						name = "overlord_production"
 						font = "font_text_14"
 						text = "12 minerals"
-						position = { x = 10 y = 220 }
+						position = { x = 10 y = 240 }
 						maxWidth = 390
 						maxHeight = 16
 						fixedSize = yes
@@ -4734,7 +4744,7 @@ guiTypes = {
 						name = "overlord_upkeep"
 						font = "font_text_14"
 						text = "5 energy"
-						position = { x = 10 y = 240 }
+						position = { x = 10 y = 260 }
 						maxWidth = 390
 						maxHeight = 16
 						fixedSize = yes

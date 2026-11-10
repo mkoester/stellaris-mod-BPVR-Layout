@@ -39,9 +39,25 @@ scripts/link-mod.sh stellaris-mod-BPVR-Layout/bpvr_layout
 When Single Row Mode updates, copy its two `interface/` files over these and re-apply the five
 variables above (`diff` against the Workshop copy shows only those lines today).
 
-`BPV Reborn - All-in-One` (3824868657) merges the same mods with other numbers and claims fixes
-for 4.5 (pop job info window, a parameter bug in the district slot inline scripts) — not
-inspected yet.
+Also taken over, from UI Overhaul Dynamic 4.5 (found comparing with `BPV Reborn - All-in-One`,
+3824868657, v1.5.0, on 2026-11-10): the pop job info block. Single Row Mode's copy predates 4.5
+and names its faction line `pop_faction`; 4.5 (vanilla and UIOD) has `pop_factions` plus a new
+`wanted_factions` line, so the rows below move down 20 px and the box grows to 280. Re-apply this
+too after an upstream copy (`diff` that block against UIOD's `interface/planet_view.gui`).
+
+What else All-in-One changes, and why we skip it:
+- Merges the core and the add-ons into one mod (12 / 6 / 4 zones) — we keep them separate.
+- Own `bpvr_*` fonts and vanilla sprites/scrollbars instead of UIOD's — only needed without UIOD.
+- `BPV_district_slots2`–`8` pass `GOVERNMENT` — those helpers are called by nothing, here or in
+  vanilla.
+- Building overrides as partial `*_game.txt` files instead of full copies — the core's full copies
+  of `00_capital_buildings.txt` and `11_primitive_buildings.txt` match 4.5 vanilla apart from the
+  slot variables, so nothing is stale.
+- An Extra Districts zone patch — not installed here.
+
+Its settings file confirms the load-order rule we rely on: for `@variables` the first definition
+wins ("already taken" in `error.log`), so `bpv_city_slots_override.txt` beats the core's
+`zz_bpv_defines.txt`.
 
 ## Test plan
 
