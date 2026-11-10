@@ -25,7 +25,7 @@
 
 # Widen the districts window, also shrink the sencodary districts space
 @main_district_size_dx = 310
-@main_district_size_dy = 70
+@main_district_size_dy = 30 # BPVR-Layout: city district 208 px tall — 3 zone rows end at 194; district cubes moved under the government zone (BPVR: 70)
 
 # The inner scroll area size of main district, should contains all zones and rows
 # Currently must larger than 20 rows, each row 52 height + some margin)
@@ -44,7 +44,7 @@
 # Secondary district sizes/layout depend on ROW_FACTOR — formulas live at use sites only.
 # Single(ROW_FACTOR=1) vs Double(ROW_FACTOR=2) actual values are noted on each line.
 
-@secondary_district_slot_h = 3 # number of slots in secondary district row
+@secondary_district_slot_h = 2 # BPVR-Layout: 4 zone slots as 2x2 — a row of 4 (216 px) overflows the 285 px district box from x = 110 (BPVR: 3)
 @secondary_district_slot_v = 2 # number of slots in secondary district column
 
 ### END Used By BPVR
@@ -5463,14 +5463,14 @@ guiTypes = {
 		containerWindowType = {
 			name = "district_box"
 			size = { width = -5 height = 28 }
-			position = { x = 12 y = 170 } # modified by BPVR
+			position = { x = 100 y = 147 } # BPVR-Layout: under the 2 government rows (BPVR: x = 12 y = 170, a 3-wide column under the icon)
 			gridBoxType = {
 				name = "district_box_grid"
 				position = { x = 0 y = 0 }
 				size = { width = -10 height = 45 }
 				format = "UPPER_LEFT"
 				slotSize = { width = 24 height = 10 }
-				max_slots_horizontal = 3 # modified by BPVR
+				max_slots_horizontal = 8 # BPVR-Layout: 8 x 24 px = the government zone width (BPVR: 3)
 				# max_slots_vertical = 3 # modified by BPVR
 				add_horizontal = yes
 			}
@@ -5691,14 +5691,14 @@ guiTypes = {
 		containerWindowType = {
 			name = "district_box"
 			size = { width = -5 height = 28 }
-			position = { x = 12 y = 170 } # modified by BPVR
+			position = { x = 100 y = 147 } # BPVR-Layout: under the 2 government rows (BPVR: x = 12 y = 170, a 3-wide column under the icon)
 			gridBoxType = {
 				name = "district_box_grid"
 				position = { x = 0 y = 0 }
 				size = { width = -10 height = 45 }
 				format = "UPPER_LEFT"
 				slotSize = { width = 24 height = 10 }
-				max_slots_horizontal = 3 # modified by BPVR
+				max_slots_horizontal = 8 # BPVR-Layout: 8 x 24 px = the government zone width (BPVR: 3)
 				# max_slots_vertical = 3 # modified by BPVR
 				add_horizontal = yes
 			}

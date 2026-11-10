@@ -13,4 +13,4 @@ slots in 2 rows of 4 and one row of 4 in every other zone. Replaces `BPVR - City
   `@BPV_CITY_ZONES`), first definition wins; the core's help files explain them
   (`steamapps/workshop/content/281990/3576125834/help/`).
 
-## Status (2026-11-10): 0.1.1, untested in game — 0.1.1 adds the 4.5 pop job info block
+## Status (2026-11-10): 0.1.2 — 0.1.0 checked in game (2×4 and 1×4 work, screenshots `2026_11_10_1`–`4`); 0.1.2 compacts the city district and makes rural zones 2×2, untested

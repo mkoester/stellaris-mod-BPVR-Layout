@@ -20,6 +20,12 @@ Changes in `interface/zzzz_planet_view.gui` (top of file, nothing else touched):
 - `@secondary_zone_slot_h` 6 → 4 — every other zone's row holds 4.
 - `@primary_zone_size_x` 320 → 216, `@secondary_zone_x` 420 → 316, `@secondary_zone_size_x`
   450 → 346 — the width the 5th and 6th slot used to take, removed.
+- City district cubes moved from a 3-wide column under the icon to an 8-wide band under the
+  government zone (`district_box` in `planet_district_entry_width_2` and `_3`), so
+  `@main_district_size_dy` 70 → 30: the city district is 40 px shorter and the rural districts
+  below get the room.
+- `@secondary_district_slot_h` 3 → 2 — a generator / mining / farming district's zone shows its
+  4 slots as 2×2; a row of 4 would not fit the 285 px district box.
 
 ## Playset
 
