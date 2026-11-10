@@ -1,0 +1,26 @@
+# BPVR Layout: every BPVR slot number in one place. Replaces BPVR - City 9 Slot (3575491852),
+# BPVR - 3 City Zones (3575502878) and BPVR - 4 Zone Slots (3575511840).
+# "!!!" sorts before every other scripted_variables file, and for @variables the first
+# definition wins, so these beat the core's defaults in zz_bpv_defines.txt.
+
+# Government (main city) zone. Vanilla: 6
+@BPV_CITY_SLOT = 8
+
+# Every other zone: city specializations, generator / mining / farming districts, habitats,
+# ring worlds, arks. Vanilla: 3. Keep DEFAULT_MAX_PLANET_BUILDINGS_PER_ZONE in
+# common/defines/zz_bpv_zone_slots_override.txt equal.
+@BPV_ZONE_SLOT = 4
+
+# Specialization zones in a city district. Vanilla: 2. Keep the $SLOTn$ lines in
+# common/inline_scripts/districts/BPV_district_slots.txt equal.
+@BPV_CITY_ZONES = 3
+
+# Third-party mods (only matter if installed), as the replaced add-ons set them
+# Ancient Empires
+@ag_num_zone_buildings = 4
+# Voyage to Eternity: Kemomimi Girl Species Story Pack
+@KZ_VOY_zone_building_slots = 4
+@KZ_VOY_zone_building_slots_YG = 4
+@KZ_VOY_zone_default_building_slots = 8
+# VoidArk - base 3 + additional value
+@voidark_building_number = 1

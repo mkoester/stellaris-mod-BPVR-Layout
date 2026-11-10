@@ -11,8 +11,14 @@ Unofficial fan project, not affiliated with Paradox Interactive.
 
 | Replaced | By |
 |---|---|
-| `BPVR - City 9 Slot` (3575491852) | `common/scripted_variables/`: `@BPV_CITY_SLOT = 8` (same file names) |
+| `BPVR - City 9 Slot` (3575491852) | `@BPV_CITY_SLOT = 8` |
+| `BPVR - 3 City Zones` (3575502878) | `@BPV_CITY_ZONES = 3`, and its `common/inline_scripts/districts/BPV_district_slots.txt` (government + 3 zone lines; overrides the core's, so this mod loads after the core) |
+| `BPVR - 4 Zone Slots` (3575511840) | `@BPV_ZONE_SLOT = 4`, and its `common/defines/zz_bpv_zone_slots_override.txt` (`DEFAULT_MAX_PLANET_BUILDINGS_PER_ZONE = 4`) |
 | `BPV Reborn - Zone Single Row Mode` (3485762595) | `interface/`: its two files, changes marked `# BPVR-Layout` |
+
+All slot numbers, and the third-party-mod values the add-ons set, are in
+`common/scripted_variables/!!!bpvr_layout_settings.txt`. Changing one there also needs the file
+its comment names.
 
 Changes in `interface/zzzz_planet_view.gui` (top of file, nothing else touched):
 
@@ -35,9 +41,9 @@ Changes in `interface/zzzz_planet_view.gui` (top of file, nothing else touched):
 
 ## Playset
 
-Still needed, enabled: `BPVR - More Building Slots` (core), `BPVR - 3 City Zones`,
-`BPVR - 4 Zone Slots`, and `UI Overhaul Dynamic` (the GUI copy is UIOD-based).
-Disabled: `BPVR - City 9 Slot`, `BPV Reborn - Zone Single Row Mode`/`Double Row Mode`.
+Still needed, enabled: `BPVR - More Building Slots` (core) and `UI Overhaul Dynamic` (the GUI
+copy is UIOD-based); this mod after both. Disabled: `BPVR - City 9 Slot`, `BPVR - 3 City Zones`,
+`BPVR - 4 Zone Slots`, `BPV Reborn - Zone Single Row Mode`/`Double Row Mode`.
 This mod goes where Single Row Mode was: after UIOD and its add-ons.
 
 Register (workspace root, launcher closed):

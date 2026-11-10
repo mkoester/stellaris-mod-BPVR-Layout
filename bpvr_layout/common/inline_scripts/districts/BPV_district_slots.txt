@@ -1,0 +1,6 @@
+zone_slots = {
+	$GOVERNMENT$
+	$SLOT1$
+	$SLOT2$
+	$SLOT3$
+}

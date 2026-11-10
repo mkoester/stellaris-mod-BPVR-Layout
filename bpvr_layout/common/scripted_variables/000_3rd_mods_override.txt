@@ -1,2 +1,0 @@
-# Voyage to Eternity: Kemomimi Girl Species Story Pack (mirrors BPVR - City 9 Slot)
-@KZ_VOY_zone_default_building_slots = 8
