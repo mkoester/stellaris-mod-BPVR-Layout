@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" viewBox="0 0 512 512">
+  <!-- BPVR - Compact Layout: the government zone as 2 rows of 4, three zones of one row of 4.
+       Our own art; render: rsvg-convert -w 512 -h 512 assets/thumbnail.svg -o bpvr_layout/thumbnail.png -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#14262c"/>
+      <stop offset="1" stop-color="#0a1418"/>
+    </linearGradient>
+    <rect id="gov" width="44" height="44" rx="5" fill="#d9a441"/>
+    <rect id="zone" width="44" height="44" rx="5" fill="#3fa7a0"/>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <rect x="24" y="24" width="464" height="464" rx="18" fill="none" stroke="#2f5560" stroke-width="4"/>
+
+  <text x="256" y="92" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-weight="bold"
+        font-size="56" fill="#e8f1f2" letter-spacing="6">BPVR</text>
+  <text x="256" y="132" text-anchor="middle" font-family="DejaVu Sans, sans-serif"
+        font-size="30" fill="#9fc6cc" letter-spacing="2">Compact Layout</text>
+
+  <!-- government zone: 2 × 4 -->
+  <rect x="48" y="170" width="226" height="128" rx="10" fill="#1d3a42"/>
+  <g transform="translate(60 182)">
+    <use xlink:href="#gov" x="0"/><use xlink:href="#gov" x="52"/><use xlink:href="#gov" x="104"/><use xlink:href="#gov" x="156"/>
+    <use xlink:href="#gov" x="0" y="60"/><use xlink:href="#gov" x="52" y="60"/><use xlink:href="#gov" x="104" y="60"/><use xlink:href="#gov" x="156" y="60"/>
+  </g>
+
+  <!-- three specialization zones: one row of 4 each -->
+  <g transform="translate(290 170)">
+    <rect width="174" height="40" rx="8" fill="#1d3a42"/>
+    <rect y="44" width="174" height="40" rx="8" fill="#1d3a42"/>
+    <rect y="88" width="174" height="40" rx="8" fill="#1d3a42"/>
+    <g transform="translate(8 6) scale(0.636)">
+      <use xlink:href="#zone" x="0"/><use xlink:href="#zone" x="60"/><use xlink:href="#zone" x="120"/><use xlink:href="#zone" x="180"/>
+      <use xlink:href="#zone" x="0" y="69"/><use xlink:href="#zone" x="60" y="69"/><use xlink:href="#zone" x="120" y="69"/><use xlink:href="#zone" x="180" y="69"/>
+      <use xlink:href="#zone" x="0" y="138"/><use xlink:href="#zone" x="60" y="138"/><use xlink:href="#zone" x="120" y="138"/><use xlink:href="#zone" x="180" y="138"/>
+    </g>
+  </g>
+
+  <!-- district band under the government zone -->
+  <g fill="#3b6f7a">
+    <rect x="48" y="312" width="416" height="14" rx="4"/>
+  </g>
+
+  <!-- rural districts: 2 × 2 each -->
+  <g transform="translate(48 344)">
+    <rect width="128" height="120" rx="10" fill="#1d3a42"/>
+    <rect x="144" width="128" height="120" rx="10" fill="#1d3a42"/>
+    <rect x="288" width="128" height="120" rx="10" fill="#1d3a42"/>
+    <g fill="#7f8f4a">
+      <rect x="24" y="16" width="36" height="36" rx="4"/><rect x="68" y="16" width="36" height="36" rx="4"/>
+      <rect x="24" y="64" width="36" height="36" rx="4"/><rect x="68" y="64" width="36" height="36" rx="4"/>
+    </g>
+    <g fill="#a35a4a" transform="translate(144 0)">
+      <rect x="24" y="16" width="36" height="36" rx="4"/><rect x="68" y="16" width="36" height="36" rx="4"/>
+      <rect x="24" y="64" width="36" height="36" rx="4"/><rect x="68" y="64" width="36" height="36" rx="4"/>
+    </g>
+    <g fill="#5f9b4a" transform="translate(288 0)">
+      <rect x="24" y="16" width="36" height="36" rx="4"/><rect x="68" y="16" width="36" height="36" rx="4"/>
+      <rect x="24" y="64" width="36" height="36" rx="4"/><rect x="68" y="64" width="36" height="36" rx="4"/>
+    </g>
+  </g>
+</svg>

@@ -3,5 +3,6 @@ tags={
 	"Graphics"
 	"Buildings"
 }
-name="BPVR Layout (local)"
+name="BPVR - Compact Layout (with some more slots and one more zone)"
+picture="thumbnail.png"
 supported_version="v4.5.*"

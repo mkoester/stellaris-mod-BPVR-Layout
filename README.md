@@ -1,11 +1,34 @@
-# BPVR Layout (local)
+# BPVR - Compact Layout (with some more slots and one more zone)
 
-A local Stellaris mod (game **4.5.x**) on top of the BPV Reborn building-slot mods: the
-government zone of a city district gets **8 slots shown as 2 rows of 4**, and every other zone
-shows **one row of 4**. **Never published**: its interface files are modified copies of
-*BPV Reborn - Zone Single Row Mode* (Workshop 3485762595), whose author has not been asked.
+A Stellaris mod (game **4.5.x**) on top of Sakura's BPV Reborn building-slot mods: the
+government zone of a city district gets **8 slots shown as 2 rows of 4**, a city district gets a
+**third specialization zone**, and every other zone gets **4 slots in one row** (2×2 in
+generator, mining and farming districts). The city district is shorter, so the rural districts
+below it get the room, and Colony Production sits beside it again, as in UIOD.
+
+![The planet view with this mod](assets/planet-view.png)
+
+**Requires**, enabled and loaded before this mod:
+[UI Overhaul Dynamic](https://steamcommunity.com/sharedfiles/filedetails/?id=1623423360) and
+[BPVR - More Building Slots](https://steamcommunity.com/sharedfiles/filedetails/?id=3576125834).
+Store pages, IDs and the release checklist: `PUBLISHING.md`. Bugs and feedback: the Discord
+forum linked there.
 
 Unofficial fan project, not affiliated with Paradox Interactive.
+
+## Credits
+
+- **Sakura**, author of BPV Reborn: the two `interface/` files are modified copies of
+  [BPV Reborn - Zone Single Row Mode](https://steamcommunity.com/sharedfiles/filedetails/?id=3485762595)
+  (changes marked `# BPVR-Layout`), and the slot numbers are the scripted variables of
+  [BPVR - More Building Slots](https://steamcommunity.com/sharedfiles/filedetails/?id=3576125834)
+  and its add-ons. Published with Sakura's permission: "please feel free to share your mod with
+  us" (comment on the core mod's Workshop page, 2026-11-11).
+- **The original BPV (Better Planet View) author**, whose work BPV Reborn builds on.
+- **UI Overhaul Dynamic**: the GUI is UIOD-based, and the pop job info block is taken whole from
+  UIOD 4.5.
+
+Only the changes marked `# BPVR-Layout`, the settings file and the store texts are ours.
 
 ## What it replaces
 
