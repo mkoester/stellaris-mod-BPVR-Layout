@@ -11,8 +11,8 @@ below it get the room, and Colony Production sits beside it again, as in UIOD.
 **Requires**, enabled and loaded before this mod:
 [UI Overhaul Dynamic](https://steamcommunity.com/sharedfiles/filedetails/?id=1623423360) and
 [BPVR - More Building Slots](https://steamcommunity.com/sharedfiles/filedetails/?id=3576125834).
-Store pages, IDs and the release checklist: `PUBLISHING.md`. Bugs and feedback: the Discord
-forum linked there.
+Bugs and feedback: the [bpvr-compact-layout forum on Discord](https://discord.gg/jw6YtHsSej).
+Store pages, IDs and the release checklist: `PUBLISHING.md`.
 
 Unofficial fan project, not affiliated with Paradox Interactive.
 

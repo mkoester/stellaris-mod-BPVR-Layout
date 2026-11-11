@@ -10,9 +10,6 @@ store screenshot `planet-view.png`, cropped from the user's own F12 shot `2026_1
 Permission: Sakura (author of the GUI files' original, BPV Reborn - Zone Single Row Mode),
 2026-11-11, on the core mod's Workshop page — `AGENTS.md`.
 
-`INVITE` below stands for the Discord invite code until the forum exists: replace every one
-(`grep -rn INVITE README.md PUBLISHING.md`).
-
 ## Checklist (first release, 1.0.0)
 
 - [x] Layout checked in game on 0.2.2 with only UIOD and the BPVR core next to it (`AGENTS.md`,
@@ -20,19 +17,21 @@ Permission: Sakura (author of the GUI files' original, BPV Reborn - Zone Single 
 - [x] `picture="thumbnail.png"` (512×512, our own art), tags, public name.
 - [ ] `version="1.0.0"` (own `chore:` commit).
 - [ ] GitHub repo `mkoester/stellaris-mod-BPVR-Layout` created public, pushed.
-- [ ] Discord forum `bpvr-compact-layout` under MODS (`../docs/discord.md`, "A new forum"),
-      invite code replaces `INVITE` here and in `README.md`, row in `../docs/discord.md`.
+- [x] Discord forum `bpvr-compact-layout` under MODS, invite `jw6YtHsSej` (2026-11-11), in the
+      store texts below, `README.md` and `../docs/discord.md`.
 - [ ] `scripts/clean-mods.sh` from the workspace root; `ls -A bpvr_layout` lists only
       `common/ descriptor.mod interface/ thumbnail.png`.
 - [ ] Launcher closed → `scripts/link-mod.sh stellaris-mod-BPVR-Layout/bpvr_layout` → launcher
       open. On Linux the upload dialog may not see a **symlinked** mod: then copy the folder into
       `<user dir>/mod/` and upload the copy.
-- [ ] Upload to **Steam Workshop** (description: BBCode below, then the "More from me" block from
+- [x] Upload to **Steam Workshop** (2026-11-11) (description: BBCode below, then the "More from me" block from
       `../docs/store-more-from-me.md` without this mod's line). On the item's page: add
       `assets/planet-view.png`, and **Required items** → UI Overhaul Dynamic (`1623423360`) and
       BPVR - More Building Slots (`3576125834`). A first upload starts **Hidden**: set it Public.
       The launcher writes `remote_file_id` into `descriptor.mod`: commit it.
-- [ ] Upload to **Paradox Mods** (plain text below; format headings, lists and links with the
+- [ ] Upload to **Paradox Mods** (failed twice on 2026-11-11, "check mod files and credentials";
+      launcher log: `Finalizing publication failed`, logged in, identical payloads. New against
+      Empty Hulls: the 62-character name and `×` in the text, now `2x2`) (plain text below; format headings, lists and links with the
       website editor, then check the saved page). Add the screenshot there too.
 - [ ] IDs into the table below, `../AGENTS.md` and `../docs/store-more-from-me.md`; then
       re-paste the "More from me" block into the other mods' descriptions, both stores.
@@ -44,7 +43,7 @@ Permission: Sakura (author of the GUI files' original, BPV Reborn - Zone Single 
 
 | Store | Item ID | URL |
 |---|---|---|
-| Steam Workshop | | |
+| Steam Workshop | `3838089096` | https://steamcommunity.com/sharedfiles/filedetails/?id=3838089096 |
 | Paradox Mods | | |
 
 `descriptor.mod` carries only the Workshop ID (`remote_file_id`); the launcher keeps the Paradox
@@ -87,7 +86,7 @@ Checked on a capital, an orbital habitat, a shattered ring segment and a Nomads 
 This mod stands on [b]Sakura[/b]'s BPV Reborn: its interface files are modified copies of [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3485762595]BPV Reborn - Zone Single Row Mode[/url], published with Sakura's kind permission. Thanks also to the original BPV author, and to UI Overhaul Dynamic, which the interface builds on.
 
 [h2]Bugs & feedback[/h2]
-Post them in the [url=https://discord.gg/INVITE]bpvr-compact-layout forum on Discord[/url].
+Post them in the [url=https://discord.gg/jw6YtHsSej]bpvr-compact-layout forum on Discord[/url].
 
 [i]Unofficial fan project, not affiliated with Paradox Interactive.[/i]
 ```
@@ -105,7 +104,7 @@ A tidier planet view for BPVR - More Building Slots: more building slots, laid o
 What you get
 • 8 government slots in the city district, as 2 rows of 4 (vanilla: 6).
 • A third specialization zone in every city district (vanilla: 2).
-• 4 slots in every other zone (vanilla: 3): one row of 4 in the city's zones, 2×2 in generator, mining and farming districts.
+• 4 slots in every other zone (vanilla: 3): one row of 4 in the city's zones, 2x2 in generator, mining and farming districts.
 • The city district is shorter, so the rural districts below get the room, and Colony Production sits beside it again, as in UI Overhaul Dynamic.
 Checked on a capital, an orbital habitat, a shattered ring segment and a Nomads arkship.
 
@@ -123,7 +122,7 @@ Credits
 This mod stands on Sakura's BPV Reborn: its interface files are modified copies of BPV Reborn - Zone Single Row Mode, published with Sakura's kind permission. Thanks also to the original BPV author, and to UI Overhaul Dynamic, which the interface builds on.
 
 Bugs & feedback
-Post them in the bpvr-compact-layout forum on Discord: https://discord.gg/INVITE
+Post them in the bpvr-compact-layout forum on Discord: https://discord.gg/jw6YtHsSej
 
 Unofficial fan project, not affiliated with Paradox Interactive.
 ```
