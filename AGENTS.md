@@ -16,6 +16,9 @@ Slots`, kept as a subscription (its district and zone overrides follow game patc
   stellaris-mod-BPVR-Layout/bpvr_layout` from the workspace root, launcher closed.
 - Keep the GUI files byte-identical to Single Row Mode except lines marked `# BPVR-Layout` (one of them heads the pop job info block, taken whole from UIOD 4.5), so an
   upstream update is a copy plus re-applying them (`README.md`, "Updating from upstream").
+  Expected error.log noise without Gigastructures: `Inexistent sprite type "GFX_*giga_birch*"`
+  and `Gui type … is missing a name` from `zzzz_bpvr_giga_gui_birch_districts_uiod.gui`
+  (Sakura's file, kept byte-identical; seen 2026-11-18). Cosmetic, not a finding.
 - Slot counts are BPVR scripted variables (`@BPV_CITY_SLOT`, `@BPV_ZONE_SLOT`,
   `@BPV_CITY_ZONES`), first definition wins; the core's help files explain them
   (`steamapps/workshop/content/281990/3576125834/help/`).
