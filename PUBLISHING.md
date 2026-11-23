@@ -33,8 +33,8 @@ Permission: Sakura (author of the GUI files' original, BPV Reborn - Zone Single 
 - [ ] ~~Upload to **Paradox Mods**~~ — given up (failed three times on 2026-11-11, the third with `2x2`, "check mod files and credentials";
       launcher log: `Finalizing publication failed`, logged in, identical payloads. New against
       Empty Hulls: the 62-character name, untried; whether UIOD and the BPVR core are on Paradox Mods
-      at all is unchecked) (plain text below; format headings, lists and links with the
-      website editor, then check the saved page). Add the screenshot there too.
+      at all is unchecked) (the launcher's form is filled by `slink`; check the saved page). Add
+      the screenshot there too.
 - [x] IDs into the table below, `../AGENTS.md` and `../docs/store-more-from-me.md`; then
       re-paste the "More from me" block into the other mods' descriptions, both stores
       (still to do: the Workshop blocks gained this mod's line).
@@ -54,78 +54,6 @@ one in its own database.
 
 ---
 
-## Store description — Steam Workshop (BBCode)
+## Store description
 
-```bbcode
-[h1]BPVR - Compact Layout[/h1]
-[i](with some more slots and one more zone)[/i]
-
-A tidier planet view for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3576125834]BPVR - More Building Slots[/url]: more building slots, laid out so you can see them all at a glance, without scrolling.
-
-[h2]What you get[/h2]
-[list]
-[*][b]8 government slots[/b] in the city district, as 2 rows of 4 (vanilla: 6).
-[*][b]A third specialization zone[/b] in every city district (vanilla: 2).
-[*][b]4 slots in every other zone[/b] (vanilla: 3): one row of 4 in the city's zones, 2×2 in generator, mining and farming districts.
-[*]The city district is shorter, so the rural districts below get the room, and [b]Colony Production[/b] sits beside it again, as in UI Overhaul Dynamic.
-[/list]
-Checked on a capital, an orbital habitat, a shattered ring segment and a Nomads arkship.
-
-[h2]Setup[/h2]
-[list]
-[*][b]Required[/b], enabled and loaded before this mod: UI Overhaul Dynamic, BPVR - More Building Slots.
-[*][b]Replaces[/b], so disable them: BPVR - City 9 Slot, BPVR - 3 City Zones, BPVR - 4 Zone Slots, and BPV Reborn - Zone Single Row Mode / Double Row Mode.
-[*]Load it where Single Row Mode was: after UIOD and its add-ons.
-[/list]
-
-[h2]Compatibility[/h2]
-[list]
-[*]Built for Stellaris 4.5.x.
-[*]Ancient Empires, Voyage to Eternity and VoidArk get the same slot numbers the replaced add-ons gave them (not tested with those mods).
-[*]Changes the checksum: no achievements or Ironman while it is active.
-[/list]
-
-[h2]Credits[/h2]
-This mod stands on [b]Sakura[/b]'s BPV Reborn: its interface files are modified copies of [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3485762595]BPV Reborn - Zone Single Row Mode[/url], published with Sakura's kind permission. Thanks also to the original BPV author, and to UI Overhaul Dynamic, which the interface builds on.
-
-[h2]Bugs & feedback[/h2]
-Post them in the [url=https://discord.gg/jw6YtHsSej]bpvr-compact-layout forum on Discord[/url].
-
-[i]Unofficial fan project, not affiliated with Paradox Interactive.[/i]
-```
-
----
-
-## Store description — Paradox Mods (plain text)
-
-```text
-BPVR - Compact Layout
-(with some more slots and one more zone)
-
-A tidier planet view for BPVR - More Building Slots: more building slots, laid out so you can see them all at a glance, without scrolling.
-
-What you get
-• 8 government slots in the city district, as 2 rows of 4 (vanilla: 6).
-• A third specialization zone in every city district (vanilla: 2).
-• 4 slots in every other zone (vanilla: 3): one row of 4 in the city's zones, 2x2 in generator, mining and farming districts.
-• The city district is shorter, so the rural districts below get the room, and Colony Production sits beside it again, as in UI Overhaul Dynamic.
-Checked on a capital, an orbital habitat, a shattered ring segment and a Nomads arkship.
-
-Setup
-• Required, enabled and loaded before this mod: UI Overhaul Dynamic, BPVR - More Building Slots.
-• Replaces, so disable them: BPVR - City 9 Slot, BPVR - 3 City Zones, BPVR - 4 Zone Slots, and BPV Reborn - Zone Single Row Mode / Double Row Mode.
-• Load it where Single Row Mode was: after UIOD and its add-ons.
-
-Compatibility
-• Built for Stellaris 4.5.x.
-• Ancient Empires, Voyage to Eternity and VoidArk get the same slot numbers the replaced add-ons gave them (not tested with those mods).
-• Changes the checksum: no achievements or Ironman while it is active.
-
-Credits
-This mod stands on Sakura's BPV Reborn: its interface files are modified copies of BPV Reborn - Zone Single Row Mode, published with Sakura's kind permission. Thanks also to the original BPV author, and to UI Overhaul Dynamic, which the interface builds on.
-
-Bugs & feedback
-Post them in the bpvr-compact-layout forum on Discord: https://discord.gg/jw6YtHsSej
-
-Unofficial fan project, not affiliated with Paradox Interactive.
-```
+`store/bpvr_layout.bbcode` is the Steam Workshop text (BBCode). `scripts/store_texts.py` in the workspace (run by `slink`, or on its own with the launcher closed) writes it into the launcher's upload form, with the "More from me" block appended, and makes the Paradox Mods HTML and short description from it. Edit the file, never the form.
