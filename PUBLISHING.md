@@ -11,6 +11,19 @@ store screenshot `planet-view.png`, cropped from the user's own F12 shot `2026_1
 Permission: Sakura (author of the GUI files' original, BPV Reborn - Zone Single Row Mode),
 2026-11-11, on the core mod's Workshop page — `AGENTS.md`.
 
+## Update for game 4.6 (2026-11-25)
+
+Rebased onto Single Row Mode 1.1.0, the BPVR core's 4.6 update and UIOD 4.6 (`AGENTS.md`,
+"Game 4.6"). Needs UIOD 4.6, so 4.6 only.
+- [x] `supported_version="v4.6.*"`; store text says 4.6.x.
+- [ ] `version="1.1.0"` (own `chore:` commit).
+- [ ] In game, with UIOD and the BPVR core (both updated): README test plan 1–3, the planet
+      view's ideology flags, the pop job info box (factions lines) and no scrollbar in the city
+      district.
+- [ ] `scripts/store_texts.py --all` (launcher closed), `scripts/clean-mods.sh`, upload to the
+      Workshop. Change note: "Supports Stellaris 4.6 (Willpower): rebased onto BPV Reborn - Zone
+      Single Row Mode 1.1.0 and UI Overhaul Dynamic 4.6."
+
 ## Checklist (first release, 1.0.0)
 
 - [x] Layout checked in game on 0.2.2 with only UIOD and the BPVR core next to it (`AGENTS.md`,

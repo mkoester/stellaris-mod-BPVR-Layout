@@ -188,7 +188,7 @@ guiTypes = {
                 slotSize = { width = 52 height = 53 }
                 add_horizontal = yes
                 max_slots_horizontal = 6
-                #max_slots_vertical = 2
+                #max_slots_vertical = 2 # Modified by BPVR
             }
             iconType = {
                 name = "progressbar"
@@ -238,7 +238,7 @@ guiTypes = {
             slotSize = { width = 450 height = @[ 53 * ROW_FACTOR - 1 ] } # Single: 52 | Double: 105
             add_horizontal = yes
             max_slots_horizontal = 1
-            #max_slots_vertical = 3
+            #max_slots_vertical = 3 # Modified by BPVR
         }
         # GIGA insula info
         effectButtonType = {
@@ -555,7 +555,7 @@ guiTypes = {
                 slotSize = { width = 450 height = @[ 53 * ROW_FACTOR - 1 ] } # Single: 52 | Double: 105
                 add_horizontal = yes
                 max_slots_horizontal = 1
-                #max_slots_vertical = 2 # GIGA adjusted
+                #max_slots_vertical = 2 # GIGA adjusted # Modified by BPVR
             }
 
             # GIGA insula info
@@ -874,7 +874,7 @@ guiTypes = {
             slotSize = { width = 450 height = @[ 53 * ROW_FACTOR - 1 ] } # Single: 52 | Double: 105
             add_horizontal = yes
             max_slots_horizontal = 1
-            #max_slots_vertical = 2 # GIGA adjusted
+            #max_slots_vertical = 2 # GIGA adjusted # Modified by BPVR
         }
 
        
@@ -1193,7 +1193,7 @@ guiTypes = {
             slotSize = { width = 450 height = @[ 53 * ROW_FACTOR - 1 ] } # Single: 52 | Double: 105
             add_horizontal = yes
             max_slots_horizontal = 1
-            #max_slots_vertical = 2 # GIGA adjusted
+            #max_slots_vertical = 2 # GIGA adjusted # Modified by BPVR
         }
         # GIGA insula info
         effectButtonType = {

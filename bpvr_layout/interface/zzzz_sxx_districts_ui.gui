@@ -1,0 +1,1369 @@
+# sxx district entry windows — aligned with planet_view templates (BPVR 2-row)
+# sxx_planet_district_sxx_city_ui <-> planet_district_entry_width_2
+# other sxx windows <-> planet_district_entry_width_1
+@ROW_FACTOR = 1 # Change this to switch between 1 row and 2 row planet view
+@main_district_size_dx = 310 # Widen the districts window (same as planet_view.gui)
+@main_district_scroll_x = 1200 # The inner scroll area size of main district
+@primary_zone_size_x = 320
+@primary_zone_size_y = 1048
+@primary_zone_slot_h = 6
+@secondary_zone_x = 420
+@secondary_zone_size_x = 450
+@secondary_zone_slot_h = 6
+@secondary_district_slot_h = 3
+@secondary_district_slot_v = 2
+
+guiTypes = {
+	# 2 width — mirrors planet_district_entry_width_2
+	containerWindowType = {
+		name = "sxx_planet_district_sxx_city_ui"
+		size = { width = @[570 + main_district_size_dx] height = @main_district_scroll_x }
+		background = {
+			name = "districts_window_background"
+			spriteType = "GFX_invisible"
+			alwaysTransparent = yes
+		}
+		buttonType = {
+			name = "selection_highlight"
+			spriteType = "GFX_glow_tile_orange_no_padding"
+			size = { x = @[570 + main_district_size_dx] y = @main_district_scroll_x }
+			alwaysTransparent = yes
+		}
+		buttonType = {
+			name = "district_button"
+			size = { x = @[570 + main_district_size_dx] y = @main_district_scroll_x }
+			quadTextureSprite = "GFX_district_hover"
+			clicksound = "menu_slide_open"
+		}
+		instantTextBoxType = {
+			name = "name"
+			font = "font_text_14"
+			text = "District Name"
+			position = { x = 10 y = 5 }
+			maxWidth = 230
+			maxHeight = 20
+			fixedSize = yes
+			truncate = yes
+			format = left
+			vertical_alignment = center
+			alwaysTransparent = yes
+		}
+		instantTextBoxType = {
+			name = "triggered_name"
+			font = "font_text_14"
+			text = "Triggered Name"
+			position = { x = @[240 + main_district_size_dx / 2] y = 5 }
+			maxWidth = 230
+			maxHeight = 20
+			fixedSize = yes
+			truncate = yes
+			format = left
+			vertical_alignment = center
+			text_color_code = "Y"
+			alwaysTransparent = yes
+		}
+		#################################
+		# effectButtonType = {
+		# 	name = "sxx_district_leader_ui"
+		# 	position = { x = -180 y = 7 }
+		# 	orientation = upper_right
+		# 	spriteType = "GFX_sxx_button_district_0"
+		# 	buttonFont = "cg_16b"
+		# 	buttonText = "sxx_district_leader_ui"
+		# 	#borderSize = { x = 8 y = 0 }
+		# 	oversound = "mouse_over"
+		# 	clicksound = "ui_queuing_district"
+		# 	effect = sxx_leader_ui_btn
+		# }
+		#################################
+		buttonType = {
+			name = "build_district"
+			position = { x = -93 y = -6 }
+			orientation = upper_right
+			spriteType = "GFX_button_animated_75_24"
+			buttonFont = "font_text_14"
+			buttonText = "BUILD_DISTRICT_BUTTON"
+			borderSize = { x = 8 y = 0 }
+			oversound = "mouse_over"
+			pdx_tooltip = "BUILD_DISTRICT"
+			clicksound = "ui_queuing_district"
+		}
+		buttonType = {
+			name = "district_icon_frame"
+			quadTextureSprite = "GFX_tiles_frame_extra_light"
+			position = { x = 8 y = 48 }
+			size = { x = 79 y = 79 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "district_icon"
+			spriteType = "GFX_district_unknown"
+			position = { x = 9 y = 49 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "district_overlay_icon"
+			spriteType = "GFX_resource_energy_large"
+			position = { x = 56 y = 49 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "progressbar"
+			spriteType = "GFX_district_progressbar"
+			position = { x = 9 y = 117 }
+			alwaysTransparent = yes
+		}
+		instantTextBoxType = {
+			name = "not_surveyed"
+			font = "font_header_20"
+			text = "UNKNOWN_SHORT"
+			position = { x = 8 y = 135 }
+			maxWidth = 79
+			maxHeight = 20
+			fixedSize = yes
+			format = center
+			vertical_alignment = center
+			alwaysTransparent = yes
+		}
+		containerWindowType = {
+			name = "district_box"
+			size = { width = -5 height = 28 }
+			position = { x = 12 y = 170 }
+			gridBoxType = {
+				name = "district_box_grid"
+				position = { x = 0 y = 0 }
+				size = { width = -10 height = 45 }
+				format = "UPPER_LEFT"
+				slotSize = { width = 24 height = 10 }
+				max_slots_horizontal = 3
+				# max_slots_vertical = 3 # Modified by BPVR
+				add_horizontal = yes
+			}
+		}
+		# Passed 15 Cubes, Number Box is shown. Replaces the bottom 6 cubes.
+		containerWindowType = {
+			name = "planet_district_cap_container"
+			size = { width = 46 height = 28 }
+			position = { x = 22 y = 135 }
+			iconType = {
+				name = "cap_background"
+				spriteType = "GFX_district_any_big"
+				position = { x = 0 y = 0 }
+				scale = 1
+			}
+			instantTextBoxType = {
+				name = "num_districts_text"
+				font = "font_text_14"
+				text = "10"
+				position = { x = 0 y = 0 }
+				maxWidth = 46
+				maxHeight = 28
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+			}
+		}
+		# Primary Zone
+		containerWindowType = {
+			name = "zone"
+			position = { x = 95 y = 35 }
+			size = { width = @primary_zone_size_x height = @primary_zone_size_y }
+			verticalScrollbar = "right_vertical_slider_thick"
+			smooth_scrolling = yes
+			background = {
+				name = "zone"
+				spriteType = "GFX_invisible"
+				alwaysTransparent = yes
+			}
+			buttonType = {
+				name = "zone_info_button"
+				position = { x = 0 y = 0 }
+				size = { x = @primary_zone_size_x y = @primary_zone_size_y }
+				quadTextureSprite = "GFX_district_hover"
+				clicksound = "menu_slide_open"
+			}
+			buttonType = {
+				name = "selection_highlight"
+				spriteType = "GFX_glow_tile_orange_no_padding"
+				position = { x = 0 y = 0 }
+				size = { x = @primary_zone_size_x y = @primary_zone_size_y }
+				alwaysTransparent = yes
+			}
+			# Buildings
+			gridBoxType = {
+				name = "buildings_box"
+				position = { x = 5 y = 0 }
+				size = { width = 205 height = -10 }
+				format = "UPPER_LEFT"
+				slotSize = { width = 52 height = 53 }
+				add_horizontal = yes
+				max_slots_horizontal = @primary_zone_slot_h
+				#max_slots_vertical = 2 # Modified by BPVR
+			}
+			iconType = {
+				name = "progressbar"
+				spriteType = "GFX_zone_smaller_progressbar"
+				position = { x = 5 y = 48 }
+				alwaysTransparent = yes
+			}
+			buttonType = {
+				name = "zone_button"
+				spriteType = "GFX_new_zone"
+				position = { x = 20 y = 0 }
+				orientation = center_left
+				centerPosition = yes
+				clicksound = "menu_slide_open"
+			}
+			instantTextBoxType = {
+				name = "zone_available"
+				font = "font_text_14"
+				text = "zone_available"
+				position = { x = 40 y = 5 }
+				maxWidth = 119
+				maxHeight = 93
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+				alwaysTransparent = yes
+			}
+			instantTextBoxType = {
+				name = "zone_unavailable"
+				font = "font_text_14"
+				text = ""
+				position = { x = 5 y = 5 }
+				maxWidth = 154
+				maxHeight = 93
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+				alwaysTransparent = yes
+			}
+		}
+		# Secondary Zones
+		gridBoxType = {
+			name = "zones_grid_box"
+			position = { x = @secondary_zone_x y = 35 }
+			size = { width = @secondary_zone_size_x height = -10 }
+			format = "UPPER_LEFT"
+			slotSize = { width = @secondary_zone_size_x height = @[53 * ROW_FACTOR] }
+			add_horizontal = yes
+			max_slots_horizontal = 1
+			#max_slots_vertical = 3 # Modified by BPVR
+		}
+	}
+	# 1 width — mirrors planet_district_entry_width_1
+	containerWindowType = {
+		name = "sxx_planet_district_sxx_dongfu_ui"
+		size = { width = 285 height = @[ 110 + 75 * ROW_FACTOR ] }
+		background = {
+			name = "districts_window_background"
+			spriteType = "GFX_dark_area"
+			alwaysTransparent = yes
+		}
+		buttonType = {
+			name = "selection_highlight"
+			spriteType = "GFX_glow_tile_orange_no_padding"
+			size = { x = 285 y = @[ 110 + 75 * ROW_FACTOR ] }
+			alwaysTransparent = yes
+		}
+		buttonType = {
+			name = "district_button"
+			size = { x = 285 y = @[ 110 + 75 * ROW_FACTOR ] }
+			quadTextureSprite = "GFX_district_hover"
+			clicksound = "menu_slide_open"
+		}
+		instantTextBoxType = {
+			name = "name"
+			font = "font_text_14"
+			text = "District Name"
+			position = { x = 10 y = 5 }
+			maxWidth = 190
+			maxHeight = 34
+			fixedSize = yes
+			truncate = yes
+			format = left
+			vertical_alignment = top
+			alwaysTransparent = yes
+		}
+		instantTextBoxType = {
+			name = "triggered_name"
+			font = "font_text_14"
+			text = "Triggered Name"
+			position = { x = 10 y = 25 }
+			maxWidth = 190
+			maxHeight = 20
+			fixedSize = yes
+			truncate = yes
+			format = left
+			vertical_alignment = top
+			text_color_code = "Y"
+			alwaysTransparent = yes
+		}
+		#################################
+		effectButtonType = {
+			name = "sxx_district_leader_ui"
+			position = { x = -155 y = 7 }
+			orientation = upper_right
+			spriteType = "GFX_sxx_button_district_1"
+			buttonFont = "cg_16b"
+			buttonText = "sxx_district_leader_ui"
+			#borderSize = { x = 8 y = 0 }
+			oversound = "mouse_over"
+			clicksound = "ui_queuing_district"
+			effect = sxx_leader_ui_btn
+		}
+		#################################
+		buttonType = {
+			name = "build_district"
+			position = { x = -93 y = -6 }
+			orientation = upper_right
+			spriteType = "GFX_button_animated_75_24"
+			buttonFont = "font_text_14"
+			buttonText = "BUILD_DISTRICT_BUTTON"
+			borderSize = { x = 8 y = 0 }
+			oversound = "mouse_over"
+			pdx_tooltip = "BUILD_DISTRICT"
+			clicksound = "ui_queuing_district"
+		}
+		buttonType = {
+			name = "district_icon_frame"
+			quadTextureSprite = "GFX_tiles_frame_extra_light"
+			position = { x = 15 y = 50 }
+			size = { x = 79 y = 79 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "district_icon"
+			spriteType = "GFX_district_unknown"
+			position = { x = 16 y = 51 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "district_overlay_icon"
+			spriteType = "GFX_resource_energy_large"
+			position = { x = 65 y = 51 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "progressbar"
+			spriteType = "GFX_district_progressbar"
+			position = { x = 16 y = 117 }
+			alwaysTransparent = yes
+		}
+		instantTextBoxType = {
+			name = "not_surveyed"
+			font = "font_header_20"
+			text = "UNKNOWN_SHORT"
+			position = { x = 8 y = 135 }
+			maxWidth = 79
+			maxHeight = 20
+			fixedSize = yes
+			format = center
+			vertical_alignment = center
+			alwaysTransparent = yes
+		}
+		containerWindowType = {
+			name = "district_box"
+			size = { width = -5 height = 28 }
+			position = { x = @[ 180 - 80 * ROW_FACTOR ] y = @[ 130 + 20 * ROW_FACTOR ] }
+			gridBoxType = {
+				name = "district_box_grid"
+				position = { x = 0 y = 0 }
+				size = { width = -10 height = 45 }
+				format = "UPPER_LEFT"
+				slotSize = { width = 24 height = 10 }
+				max_slots_horizontal = @[ 11 - 4 * ROW_FACTOR ]
+				max_slots_vertical = @[ 6 * ROW_FACTOR - 4 ]
+				add_horizontal = yes
+			}
+		}
+		# Passed 30 Cubes, Number Box is shown. Replaces the bottom 6 cubes.
+		containerWindowType = {
+			name = "planet_district_cap_container"
+			size = { width = 46 height = 28 }
+			position = { x = 30 y = 135 }
+			iconType = {
+				name = "cap_background"
+				spriteType = "GFX_district_any_big"
+				position = { x = 0 y = 0 }
+				scale = 1
+			}
+			instantTextBoxType = {
+				name = "num_districts_text"
+				font = "font_text_14"
+				text = "10"
+				position = { x = 0 y = 0 }
+				maxWidth = 46
+				maxHeight = 28
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+			}
+		}
+		# Zone
+		containerWindowType = {
+			name = "zone"
+			size = { width = @[secondary_district_slot_h * 52 + 8] height = @[secondary_district_slot_v * 52 * ROW_FACTOR + 8] }
+			position = { x = 110 y = 35 }
+			clipping = no
+			background = {
+				name = "zone"
+				spriteType = "GFX_dark_area_cut_light"
+				alwaysTransparent = yes
+			}
+			buttonType = {
+				name = "zone_info_button"
+				position = { x = 0 y = 0 }
+				size = { x = @[secondary_district_slot_h * 52 + 8] y = @[secondary_district_slot_v * 52* ROW_FACTOR + 8] }
+				quadTextureSprite = "GFX_district_hover"
+				clicksound = "menu_slide_open"
+			}
+			buttonType = {
+				name = "selection_highlight"
+				spriteType = "GFX_glow_tile_orange_no_padding"
+				position = { x = 0 y = 0 }
+				size = { x = @[secondary_district_slot_h * 52 + 8] y = @[secondary_district_slot_v * 52 * ROW_FACTOR + 8] }
+				alwaysTransparent = yes
+			}
+			# Buildings
+			gridBoxType = {
+				name = "buildings_box"
+				position = { x = 5 y = 5 }
+				size = { width = -5 height = -5 }
+				format = "UPPER_LEFT"
+				slotSize = { width = 52 height = 52 }
+				add_horizontal = yes
+				max_slots_horizontal = @secondary_district_slot_h
+				#max_slots_vertical = 2 # Modified by BPVR
+			}
+			iconType = {
+				name = "progressbar"
+				spriteType = "GFX_zone_smaller_progressbar"
+				position = { x = 5 y = 52 }
+				alwaysTransparent = yes
+			}
+			buttonType = {
+				name = "zone_button"
+				position = { x = 15 y = 15 }
+				spriteType = "GFX_new_zone"
+				clicksound = "menu_slide_open"
+			}
+			instantTextBoxType = {
+				name = "zone_available"
+				font = "font_text_14"
+				text = "zone_available"
+				position = { x = 32 y = -8 }
+				maxWidth = 125
+				maxHeight = 77
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+				alwaysTransparent = yes
+			}
+			instantTextBoxType = {
+				name = "zone_unavailable"
+				font = "font_text_14"
+				text = ""
+				position = { x = 0 y = 0 }
+				maxWidth = 165
+				maxHeight = 77
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+				alwaysTransparent = yes
+			}
+		}
+	}
+	# 1 width — mirrors planet_district_entry_width_1
+	containerWindowType = {
+		name = "sxx_planet_district_sxx_stones_ui"
+		size = { width = 285 height = @[ 110 + 75 * ROW_FACTOR ] }
+		background = {
+			name = "districts_window_background"
+			spriteType = "GFX_dark_area"
+			alwaysTransparent = yes
+		}
+		buttonType = {
+			name = "selection_highlight"
+			spriteType = "GFX_glow_tile_orange_no_padding"
+			size = { x = 285 y = @[ 110 + 75 * ROW_FACTOR ] }
+			alwaysTransparent = yes
+		}
+		buttonType = {
+			name = "district_button"
+			size = { x = 285 y = @[ 110 + 75 * ROW_FACTOR ] }
+			quadTextureSprite = "GFX_district_hover"
+			clicksound = "menu_slide_open"
+		}
+		instantTextBoxType = {
+			name = "name"
+			font = "font_text_14"
+			text = "District Name"
+			position = { x = 10 y = 5 }
+			maxWidth = 190
+			maxHeight = 34
+			fixedSize = yes
+			truncate = yes
+			format = left
+			vertical_alignment = top
+			alwaysTransparent = yes
+		}
+		instantTextBoxType = {
+			name = "triggered_name"
+			font = "font_text_14"
+			text = "Triggered Name"
+			position = { x = 10 y = 25 }
+			maxWidth = 190
+			maxHeight = 20
+			fixedSize = yes
+			truncate = yes
+			format = left
+			vertical_alignment = top
+			text_color_code = "Y"
+			alwaysTransparent = yes
+		}
+		#################################
+		effectButtonType = {
+			name = "sxx_district_upgrade_lingmai_ui"
+			position = { x = -155 y = 7 }
+			orientation = upper_right
+			spriteType = "GFX_sxx_button_district_2"
+			buttonFont = "cg_16b"
+			buttonText = "sxx_district_upgrade_lingmai_ui"
+			#borderSize = { x = 8 y = 0 }
+			oversound = "mouse_over"
+			clicksound = "ui_queuing_district"
+			effect = sxx_upgrade_lingmai_ui_btn
+		}
+		#################################
+		buttonType = {
+			name = "build_district"
+			position = { x = -93 y = -6 }
+			orientation = upper_right
+			spriteType = "GFX_button_animated_75_24"
+			buttonFont = "font_text_14"
+			buttonText = "BUILD_DISTRICT_BUTTON"
+			borderSize = { x = 8 y = 0 }
+			oversound = "mouse_over"
+			pdx_tooltip = "BUILD_DISTRICT"
+			clicksound = "ui_queuing_district"
+		}
+		buttonType = {
+			name = "district_icon_frame"
+			quadTextureSprite = "GFX_tiles_frame_extra_light"
+			position = { x = 15 y = 50 }
+			size = { x = 79 y = 79 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "district_icon"
+			spriteType = "GFX_district_unknown"
+			position = { x = 16 y = 51 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "district_overlay_icon"
+			spriteType = "GFX_resource_energy_large"
+			position = { x = 65 y = 51 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "progressbar"
+			spriteType = "GFX_district_progressbar"
+			position = { x = 16 y = 117 }
+			alwaysTransparent = yes
+		}
+		instantTextBoxType = {
+			name = "not_surveyed"
+			font = "font_header_20"
+			text = "UNKNOWN_SHORT"
+			position = { x = 8 y = 135 }
+			maxWidth = 79
+			maxHeight = 20
+			fixedSize = yes
+			format = center
+			vertical_alignment = center
+			alwaysTransparent = yes
+		}
+		containerWindowType = {
+			name = "district_box"
+			size = { width = -5 height = 28 }
+			position = { x = @[ 180 - 80 * ROW_FACTOR ] y = @[ 130 + 20 * ROW_FACTOR ] }
+			gridBoxType = {
+				name = "district_box_grid"
+				position = { x = 0 y = 0 }
+				size = { width = -10 height = 45 }
+				format = "UPPER_LEFT"
+				slotSize = { width = 24 height = 10 }
+				max_slots_horizontal = @[ 11 - 4 * ROW_FACTOR ]
+				max_slots_vertical = @[ 6 * ROW_FACTOR - 4 ]
+				add_horizontal = yes
+			}
+		}
+		# Passed 30 Cubes, Number Box is shown. Replaces the bottom 6 cubes.
+		containerWindowType = {
+			name = "planet_district_cap_container"
+			size = { width = 46 height = 28 }
+			position = { x = 30 y = 135 }
+			iconType = {
+				name = "cap_background"
+				spriteType = "GFX_district_any_big"
+				position = { x = 0 y = 0 }
+				scale = 1
+			}
+			instantTextBoxType = {
+				name = "num_districts_text"
+				font = "font_text_14"
+				text = "10"
+				position = { x = 0 y = 0 }
+				maxWidth = 46
+				maxHeight = 28
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+			}
+		}
+		# Zone
+		containerWindowType = {
+			name = "zone"
+			size = { width = @[secondary_district_slot_h * 52 + 8] height = @[secondary_district_slot_v * 52 * ROW_FACTOR + 8] }
+			position = { x = 110 y = 35 }
+			clipping = no
+			background = {
+				name = "zone"
+				spriteType = "GFX_dark_area_cut_light"
+				alwaysTransparent = yes
+			}
+			buttonType = {
+				name = "zone_info_button"
+				position = { x = 0 y = 0 }
+				size = { x = @[secondary_district_slot_h * 52 + 8] y = @[secondary_district_slot_v * 52* ROW_FACTOR + 8] }
+				quadTextureSprite = "GFX_district_hover"
+				clicksound = "menu_slide_open"
+			}
+			buttonType = {
+				name = "selection_highlight"
+				spriteType = "GFX_glow_tile_orange_no_padding"
+				position = { x = 0 y = 0 }
+				size = { x = @[secondary_district_slot_h * 52 + 8] y = @[secondary_district_slot_v * 52 * ROW_FACTOR + 8] }
+				alwaysTransparent = yes
+			}
+			# Buildings
+			gridBoxType = {
+				name = "buildings_box"
+				position = { x = 5 y = 5 }
+				size = { width = -5 height = -5 }
+				format = "UPPER_LEFT"
+				slotSize = { width = 52 height = 52 }
+				add_horizontal = yes
+				max_slots_horizontal = @secondary_district_slot_h
+				#max_slots_vertical = 2 # Modified by BPVR
+			}
+			iconType = {
+				name = "progressbar"
+				spriteType = "GFX_zone_smaller_progressbar"
+				position = { x = 5 y = 52 }
+				alwaysTransparent = yes
+			}
+			buttonType = {
+				name = "zone_button"
+				position = { x = 15 y = 15 }
+				spriteType = "GFX_new_zone"
+				clicksound = "menu_slide_open"
+			}
+			instantTextBoxType = {
+				name = "zone_available"
+				font = "font_text_14"
+				text = "zone_available"
+				position = { x = 32 y = -8 }
+				maxWidth = 125
+				maxHeight = 77
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+				alwaysTransparent = yes
+			}
+			instantTextBoxType = {
+				name = "zone_unavailable"
+				font = "font_text_14"
+				text = ""
+				position = { x = 0 y = 0 }
+				maxWidth = 165
+				maxHeight = 77
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+				alwaysTransparent = yes
+			}
+		}
+	}
+	# 1 width — mirrors planet_district_entry_width_1
+	containerWindowType = {
+		name = "sxx_planet_district_sxx_lingyao_ui"
+		size = { width = 285 height = @[ 110 + 75 * ROW_FACTOR ] }
+		background = {
+			name = "districts_window_background"
+			spriteType = "GFX_dark_area"
+			alwaysTransparent = yes
+		}
+		buttonType = {
+			name = "selection_highlight"
+			spriteType = "GFX_glow_tile_orange_no_padding"
+			size = { x = 285 y = @[ 110 + 75 * ROW_FACTOR ] }
+			alwaysTransparent = yes
+		}
+		buttonType = {
+			name = "district_button"
+			size = { x = 285 y = @[ 110 + 75 * ROW_FACTOR ] }
+			quadTextureSprite = "GFX_district_hover"
+			clicksound = "menu_slide_open"
+		}
+		instantTextBoxType = {
+			name = "name"
+			font = "font_text_14"
+			text = "District Name"
+			position = { x = 10 y = 5 }
+			maxWidth = 190
+			maxHeight = 34
+			fixedSize = yes
+			truncate = yes
+			format = left
+			vertical_alignment = top
+			alwaysTransparent = yes
+		}
+		instantTextBoxType = {
+			name = "triggered_name"
+			font = "font_text_14"
+			text = "Triggered Name"
+			position = { x = 10 y = 25 }
+			maxWidth = 190
+			maxHeight = 20
+			fixedSize = yes
+			truncate = yes
+			format = left
+			vertical_alignment = top
+			text_color_code = "Y"
+			alwaysTransparent = yes
+		}
+		#################################
+		# effectButtonType = {
+		# 	name = "sxx_district_leader_ui"
+		# 	position = { x = -180 y = 7 }
+		# 	orientation = upper_right
+		# 	spriteType = "GFX_sxx_button_district_0"
+		# 	buttonFont = "cg_16b"
+		# 	buttonText = "sxx_district_leader_ui"
+		# 	#borderSize = { x = 8 y = 0 }
+		# 	oversound = "mouse_over"
+		# 	clicksound = "ui_queuing_district"
+		# 	effect = sxx_leader_ui_btn
+		# }
+		#################################
+		buttonType = {
+			name = "build_district"
+			position = { x = -93 y = -6 }
+			orientation = upper_right
+			spriteType = "GFX_button_animated_75_24"
+			buttonFont = "font_text_14"
+			buttonText = "BUILD_DISTRICT_BUTTON"
+			borderSize = { x = 8 y = 0 }
+			oversound = "mouse_over"
+			pdx_tooltip = "BUILD_DISTRICT"
+			clicksound = "ui_queuing_district"
+		}
+		buttonType = {
+			name = "district_icon_frame"
+			quadTextureSprite = "GFX_tiles_frame_extra_light"
+			position = { x = 15 y = 50 }
+			size = { x = 79 y = 79 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "district_icon"
+			spriteType = "GFX_district_unknown"
+			position = { x = 16 y = 51 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "district_overlay_icon"
+			spriteType = "GFX_resource_energy_large"
+			position = { x = 65 y = 51 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "progressbar"
+			spriteType = "GFX_district_progressbar"
+			position = { x = 16 y = 117 }
+			alwaysTransparent = yes
+		}
+		instantTextBoxType = {
+			name = "not_surveyed"
+			font = "font_header_20"
+			text = "UNKNOWN_SHORT"
+			position = { x = 8 y = 135 }
+			maxWidth = 79
+			maxHeight = 20
+			fixedSize = yes
+			format = center
+			vertical_alignment = center
+			alwaysTransparent = yes
+		}
+		containerWindowType = {
+			name = "district_box"
+			size = { width = -5 height = 28 }
+			position = { x = @[ 180 - 80 * ROW_FACTOR ] y = @[ 130 + 20 * ROW_FACTOR ] }
+			gridBoxType = {
+				name = "district_box_grid"
+				position = { x = 0 y = 0 }
+				size = { width = -10 height = 45 }
+				format = "UPPER_LEFT"
+				slotSize = { width = 24 height = 10 }
+				max_slots_horizontal = @[ 11 - 4 * ROW_FACTOR ]
+				max_slots_vertical = @[ 6 * ROW_FACTOR - 4 ]
+				add_horizontal = yes
+			}
+		}
+		# Passed 30 Cubes, Number Box is shown. Replaces the bottom 6 cubes.
+		containerWindowType = {
+			name = "planet_district_cap_container"
+			size = { width = 46 height = 28 }
+			position = { x = 30 y = 135 }
+			iconType = {
+				name = "cap_background"
+				spriteType = "GFX_district_any_big"
+				position = { x = 0 y = 0 }
+				scale = 1
+			}
+			instantTextBoxType = {
+				name = "num_districts_text"
+				font = "font_text_14"
+				text = "10"
+				position = { x = 0 y = 0 }
+				maxWidth = 46
+				maxHeight = 28
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+			}
+		}
+		# Zone
+		containerWindowType = {
+			name = "zone"
+			size = { width = @[secondary_district_slot_h * 52 + 8] height = @[secondary_district_slot_v * 52 * ROW_FACTOR + 8] }
+			position = { x = 110 y = 35 }
+			clipping = no
+			background = {
+				name = "zone"
+				spriteType = "GFX_dark_area_cut_light"
+				alwaysTransparent = yes
+			}
+			buttonType = {
+				name = "zone_info_button"
+				position = { x = 0 y = 0 }
+				size = { x = @[secondary_district_slot_h * 52 + 8] y = @[secondary_district_slot_v * 52* ROW_FACTOR + 8] }
+				quadTextureSprite = "GFX_district_hover"
+				clicksound = "menu_slide_open"
+			}
+			buttonType = {
+				name = "selection_highlight"
+				spriteType = "GFX_glow_tile_orange_no_padding"
+				position = { x = 0 y = 0 }
+				size = { x = @[secondary_district_slot_h * 52 + 8] y = @[secondary_district_slot_v * 52 * ROW_FACTOR + 8] }
+				alwaysTransparent = yes
+			}
+			# Buildings
+			gridBoxType = {
+				name = "buildings_box"
+				position = { x = 5 y = 5 }
+				size = { width = -5 height = -5 }
+				format = "UPPER_LEFT"
+				slotSize = { width = 52 height = 52 }
+				add_horizontal = yes
+				max_slots_horizontal = @secondary_district_slot_h
+				#max_slots_vertical = 2 # Modified by BPVR
+			}
+			iconType = {
+				name = "progressbar"
+				spriteType = "GFX_zone_smaller_progressbar"
+				position = { x = 5 y = 52 }
+				alwaysTransparent = yes
+			}
+			buttonType = {
+				name = "zone_button"
+				position = { x = 15 y = 15 }
+				spriteType = "GFX_new_zone"
+				clicksound = "menu_slide_open"
+			}
+			instantTextBoxType = {
+				name = "zone_available"
+				font = "font_text_14"
+				text = "zone_available"
+				position = { x = 32 y = -8 }
+				maxWidth = 125
+				maxHeight = 77
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+				alwaysTransparent = yes
+			}
+			instantTextBoxType = {
+				name = "zone_unavailable"
+				font = "font_text_14"
+				text = ""
+				position = { x = 0 y = 0 }
+				maxWidth = 165
+				maxHeight = 77
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+				alwaysTransparent = yes
+			}
+		}
+	}
+	# 1 width — mirrors planet_district_entry_width_1
+	containerWindowType = {
+		name = "sxx_planet_district_sxx_pw_ui"
+		size = { width = 285 height = @[ 110 + 75 * ROW_FACTOR ] }
+		background = {
+			name = "districts_window_background"
+			spriteType = "GFX_dark_area"
+			alwaysTransparent = yes
+		}
+		buttonType = {
+			name = "selection_highlight"
+			spriteType = "GFX_glow_tile_orange_no_padding"
+			size = { x = 285 y = @[ 110 + 75 * ROW_FACTOR ] }
+			alwaysTransparent = yes
+		}
+		buttonType = {
+			name = "district_button"
+			size = { x = 285 y = @[ 110 + 75 * ROW_FACTOR ] }
+			quadTextureSprite = "GFX_district_hover"
+			clicksound = "menu_slide_open"
+		}
+		instantTextBoxType = {
+			name = "name"
+			font = "font_text_14"
+			text = "District Name"
+			position = { x = 10 y = 5 }
+			maxWidth = 190
+			maxHeight = 34
+			fixedSize = yes
+			truncate = yes
+			format = left
+			vertical_alignment = top
+			alwaysTransparent = yes
+		}
+		instantTextBoxType = {
+			name = "triggered_name"
+			font = "font_text_14"
+			text = "Triggered Name"
+			position = { x = 10 y = 25 }
+			maxWidth = 190
+			maxHeight = 20
+			fixedSize = yes
+			truncate = yes
+			format = left
+			vertical_alignment = top
+			text_color_code = "Y"
+			alwaysTransparent = yes
+		}
+		#################################
+		# effectButtonType = {
+		# 	name = "sxx_district_leader_ui"
+		# 	position = { x = -180 y = 7 }
+		# 	orientation = upper_right
+		# 	spriteType = "GFX_sxx_button_district_0"
+		# 	buttonFont = "cg_16b"
+		# 	buttonText = "sxx_district_leader_ui"
+		# 	#borderSize = { x = 8 y = 0 }
+		# 	oversound = "mouse_over"
+		# 	clicksound = "ui_queuing_district"
+		# 	effect = sxx_leader_ui_btn
+		# }
+		#################################
+		buttonType = {
+			name = "build_district"
+			position = { x = -93 y = -6 }
+			orientation = upper_right
+			spriteType = "GFX_button_animated_75_24"
+			buttonFont = "font_text_14"
+			buttonText = "BUILD_DISTRICT_BUTTON"
+			borderSize = { x = 8 y = 0 }
+			oversound = "mouse_over"
+			pdx_tooltip = "BUILD_DISTRICT"
+			clicksound = "ui_queuing_district"
+		}
+		buttonType = {
+			name = "district_icon_frame"
+			quadTextureSprite = "GFX_tiles_frame_extra_light"
+			position = { x = 15 y = 50 }
+			size = { x = 79 y = 79 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "district_icon"
+			spriteType = "GFX_district_unknown"
+			position = { x = 16 y = 51 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "district_overlay_icon"
+			spriteType = "GFX_resource_energy_large"
+			position = { x = 65 y = 51 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "progressbar"
+			spriteType = "GFX_district_progressbar"
+			position = { x = 16 y = 117 }
+			alwaysTransparent = yes
+		}
+		instantTextBoxType = {
+			name = "not_surveyed"
+			font = "font_header_20"
+			text = "UNKNOWN_SHORT"
+			position = { x = 8 y = 135 }
+			maxWidth = 79
+			maxHeight = 20
+			fixedSize = yes
+			format = center
+			vertical_alignment = center
+			alwaysTransparent = yes
+		}
+		containerWindowType = {
+			name = "district_box"
+			size = { width = -5 height = 28 }
+			position = { x = @[ 180 - 80 * ROW_FACTOR ] y = @[ 130 + 20 * ROW_FACTOR ] }
+			gridBoxType = {
+				name = "district_box_grid"
+				position = { x = 0 y = 0 }
+				size = { width = -10 height = 45 }
+				format = "UPPER_LEFT"
+				slotSize = { width = 24 height = 10 }
+				max_slots_horizontal = @[ 11 - 4 * ROW_FACTOR ]
+				max_slots_vertical = @[ 6 * ROW_FACTOR - 4 ]
+				add_horizontal = yes
+			}
+		}
+		# Passed 30 Cubes, Number Box is shown. Replaces the bottom 6 cubes.
+		containerWindowType = {
+			name = "planet_district_cap_container"
+			size = { width = 46 height = 28 }
+			position = { x = 30 y = 135 }
+			iconType = {
+				name = "cap_background"
+				spriteType = "GFX_district_any_big"
+				position = { x = 0 y = 0 }
+				scale = 1
+			}
+			instantTextBoxType = {
+				name = "num_districts_text"
+				font = "font_text_14"
+				text = "10"
+				position = { x = 0 y = 0 }
+				maxWidth = 46
+				maxHeight = 28
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+			}
+		}
+		# Zone
+		containerWindowType = {
+			name = "zone"
+			size = { width = @[secondary_district_slot_h * 52 + 8] height = @[secondary_district_slot_v * 52 * ROW_FACTOR + 8] }
+			position = { x = 110 y = 35 }
+			clipping = no
+			background = {
+				name = "zone"
+				spriteType = "GFX_dark_area_cut_light"
+				alwaysTransparent = yes
+			}
+			buttonType = {
+				name = "zone_info_button"
+				position = { x = 0 y = 0 }
+				size = { x = @[secondary_district_slot_h * 52 + 8] y = @[secondary_district_slot_v * 52* ROW_FACTOR + 8] }
+				quadTextureSprite = "GFX_district_hover"
+				clicksound = "menu_slide_open"
+			}
+			buttonType = {
+				name = "selection_highlight"
+				spriteType = "GFX_glow_tile_orange_no_padding"
+				position = { x = 0 y = 0 }
+				size = { x = @[secondary_district_slot_h * 52 + 8] y = @[secondary_district_slot_v * 52 * ROW_FACTOR + 8] }
+				alwaysTransparent = yes
+			}
+			# Buildings
+			gridBoxType = {
+				name = "buildings_box"
+				position = { x = 5 y = 5 }
+				size = { width = -5 height = -5 }
+				format = "UPPER_LEFT"
+				slotSize = { width = 52 height = 52 }
+				add_horizontal = yes
+				max_slots_horizontal = @secondary_district_slot_h
+				#max_slots_vertical = 2 # Modified by BPVR
+			}
+			iconType = {
+				name = "progressbar"
+				spriteType = "GFX_zone_smaller_progressbar"
+				position = { x = 5 y = 52 }
+				alwaysTransparent = yes
+			}
+			buttonType = {
+				name = "zone_button"
+				position = { x = 15 y = 15 }
+				spriteType = "GFX_new_zone"
+				clicksound = "menu_slide_open"
+			}
+			instantTextBoxType = {
+				name = "zone_available"
+				font = "font_text_14"
+				text = "zone_available"
+				position = { x = 32 y = -8 }
+				maxWidth = 125
+				maxHeight = 77
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+				alwaysTransparent = yes
+			}
+			instantTextBoxType = {
+				name = "zone_unavailable"
+				font = "font_text_14"
+				text = ""
+				position = { x = 0 y = 0 }
+				maxWidth = 165
+				maxHeight = 77
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+				alwaysTransparent = yes
+			}
+		}
+	}
+	# 1 width — mirrors planet_district_entry_width_1
+	containerWindowType = {
+		name = "sxx_planet_district_sxx_battlefieldpass_ui"
+		size = { width = 285 height = @[ 110 + 75 * ROW_FACTOR ] }
+		background = {
+			name = "districts_window_background"
+			spriteType = "GFX_dark_area"
+			alwaysTransparent = yes
+		}
+		buttonType = {
+			name = "selection_highlight"
+			spriteType = "GFX_glow_tile_orange_no_padding"
+			size = { x = 285 y = @[ 110 + 75 * ROW_FACTOR ] }
+			alwaysTransparent = yes
+		}
+		buttonType = {
+			name = "district_button"
+			size = { x = 285 y = @[ 110 + 75 * ROW_FACTOR ] }
+			quadTextureSprite = "GFX_district_hover"
+			clicksound = "menu_slide_open"
+		}
+		instantTextBoxType = {
+			name = "name"
+			font = "font_text_14"
+			text = "District Name"
+			position = { x = 10 y = 5 }
+			maxWidth = 190
+			maxHeight = 34
+			fixedSize = yes
+			truncate = yes
+			format = left
+			vertical_alignment = top
+			alwaysTransparent = yes
+		}
+		instantTextBoxType = {
+			name = "triggered_name"
+			font = "font_text_14"
+			text = "Triggered Name"
+			position = { x = 10 y = 25 }
+			maxWidth = 190
+			maxHeight = 20
+			fixedSize = yes
+			truncate = yes
+			format = left
+			vertical_alignment = top
+			text_color_code = "Y"
+			alwaysTransparent = yes
+		}
+		#################################
+		# effectButtonType = {
+		# 	name = "sxx_district_leader_ui"
+		# 	position = { x = -180 y = 7 }
+		# 	orientation = upper_right
+		# 	spriteType = "GFX_sxx_button_district_0"
+		# 	buttonFont = "cg_16b"
+		# 	buttonText = "sxx_district_leader_ui"
+		# 	#borderSize = { x = 8 y = 0 }
+		# 	oversound = "mouse_over"
+		# 	clicksound = "ui_queuing_district"
+		# 	effect = sxx_leader_ui_btn
+		# }
+		#################################
+		buttonType = {
+			name = "build_district"
+			position = { x = -93 y = -6 }
+			orientation = upper_right
+			spriteType = "GFX_button_animated_75_24"
+			buttonFont = "font_text_14"
+			buttonText = "BUILD_DISTRICT_BUTTON"
+			borderSize = { x = 8 y = 0 }
+			oversound = "mouse_over"
+			pdx_tooltip = "BUILD_DISTRICT"
+			clicksound = "ui_queuing_district"
+		}
+		buttonType = {
+			name = "district_icon_frame"
+			quadTextureSprite = "GFX_tiles_frame_extra_light"
+			position = { x = 15 y = 50 }
+			size = { x = 79 y = 79 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "district_icon"
+			spriteType = "GFX_district_unknown"
+			position = { x = 16 y = 51 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "district_overlay_icon"
+			spriteType = "GFX_resource_energy_large"
+			position = { x = 65 y = 51 }
+			alwaysTransparent = yes
+		}
+		iconType = {
+			name = "progressbar"
+			spriteType = "GFX_district_progressbar"
+			position = { x = 16 y = 117 }
+			alwaysTransparent = yes
+		}
+		instantTextBoxType = {
+			name = "not_surveyed"
+			font = "font_header_20"
+			text = "UNKNOWN_SHORT"
+			position = { x = 8 y = 135 }
+			maxWidth = 79
+			maxHeight = 20
+			fixedSize = yes
+			format = center
+			vertical_alignment = center
+			alwaysTransparent = yes
+		}
+		containerWindowType = {
+			name = "district_box"
+			size = { width = -5 height = 28 }
+			position = { x = @[ 180 - 80 * ROW_FACTOR ] y = @[ 130 + 20 * ROW_FACTOR ] }
+			gridBoxType = {
+				name = "district_box_grid"
+				position = { x = 0 y = 0 }
+				size = { width = -10 height = 45 }
+				format = "UPPER_LEFT"
+				slotSize = { width = 24 height = 10 }
+				max_slots_horizontal = @[ 11 - 4 * ROW_FACTOR ]
+				max_slots_vertical = @[ 6 * ROW_FACTOR - 4 ]
+				add_horizontal = yes
+			}
+		}
+		# Passed 30 Cubes, Number Box is shown. Replaces the bottom 6 cubes.
+		containerWindowType = {
+			name = "planet_district_cap_container"
+			size = { width = 46 height = 28 }
+			position = { x = 30 y = 135 }
+			iconType = {
+				name = "cap_background"
+				spriteType = "GFX_district_any_big"
+				position = { x = 0 y = 0 }
+				scale = 1
+			}
+			instantTextBoxType = {
+				name = "num_districts_text"
+				font = "font_text_14"
+				text = "10"
+				position = { x = 0 y = 0 }
+				maxWidth = 46
+				maxHeight = 28
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+			}
+		}
+		# Zone
+		containerWindowType = {
+			name = "zone"
+			size = { width = @[secondary_district_slot_h * 52 + 8] height = @[secondary_district_slot_v * 52 * ROW_FACTOR + 8] }
+			position = { x = 110 y = 35 }
+			clipping = no
+			background = {
+				name = "zone"
+				spriteType = "GFX_dark_area_cut_light"
+				alwaysTransparent = yes
+			}
+			buttonType = {
+				name = "zone_info_button"
+				position = { x = 0 y = 0 }
+				size = { x = @[secondary_district_slot_h * 52 + 8] y = @[secondary_district_slot_v * 52* ROW_FACTOR + 8] }
+				quadTextureSprite = "GFX_district_hover"
+				clicksound = "menu_slide_open"
+			}
+			buttonType = {
+				name = "selection_highlight"
+				spriteType = "GFX_glow_tile_orange_no_padding"
+				position = { x = 0 y = 0 }
+				size = { x = @[secondary_district_slot_h * 52 + 8] y = @[secondary_district_slot_v * 52 * ROW_FACTOR + 8] }
+				alwaysTransparent = yes
+			}
+			# Buildings
+			gridBoxType = {
+				name = "buildings_box"
+				position = { x = 5 y = 5 }
+				size = { width = -5 height = -5 }
+				format = "UPPER_LEFT"
+				slotSize = { width = 52 height = 52 }
+				add_horizontal = yes
+				max_slots_horizontal = @secondary_district_slot_h
+				#max_slots_vertical = 2 # Modified by BPVR
+			}
+			iconType = {
+				name = "progressbar"
+				spriteType = "GFX_zone_smaller_progressbar"
+				position = { x = 5 y = 52 }
+				alwaysTransparent = yes
+			}
+			buttonType = {
+				name = "zone_button"
+				position = { x = 15 y = 15 }
+				spriteType = "GFX_new_zone"
+				clicksound = "menu_slide_open"
+			}
+			instantTextBoxType = {
+				name = "zone_available"
+				font = "font_text_14"
+				text = "zone_available"
+				position = { x = 32 y = -8 }
+				maxWidth = 125
+				maxHeight = 77
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+				alwaysTransparent = yes
+			}
+			instantTextBoxType = {
+				name = "zone_unavailable"
+				font = "font_text_14"
+				text = ""
+				position = { x = 0 y = 0 }
+				maxWidth = 165
+				maxHeight = 77
+				fixedSize = yes
+				format = center
+				vertical_alignment = center
+				alwaysTransparent = yes
+			}
+		}
+	}
+}

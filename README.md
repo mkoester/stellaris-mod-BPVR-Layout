@@ -1,6 +1,6 @@
 # BPVR - Compact Layout (with some more slots and one more zone)
 
-A Stellaris mod (game **4.5.x**) on top of Sakura's BPV Reborn building-slot mods: the
+A Stellaris mod (game **4.6.x**) on top of Sakura's BPV Reborn building-slot mods: the
 government zone of a city district gets **8 slots shown as 2 rows of 4**, a city district gets a
 **third specialization zone**, and every other zone gets **4 slots in one row** (2×2 in
 generator, mining and farming districts). The city district is shorter, so the rural districts
@@ -18,15 +18,14 @@ Unofficial fan project, not affiliated with Paradox Interactive.
 
 ## Credits
 
-- **Sakura**, author of BPV Reborn: the two `interface/` files are modified copies of
+- **Sakura**, author of BPV Reborn: the `interface/` files are copies of
   [BPV Reborn - Zone Single Row Mode](https://steamcommunity.com/sharedfiles/filedetails/?id=3485762595)
   (changes marked `# BPVR-Layout`), and the slot numbers are the scripted variables of
   [BPVR - More Building Slots](https://steamcommunity.com/sharedfiles/filedetails/?id=3576125834)
   and its add-ons. Published with Sakura's permission: "please feel free to share your mod with
   us" (comment on the core mod's Workshop page, 2026-11-11).
 - **The original BPV (Better Planet View) author**, whose work BPV Reborn builds on.
-- **UI Overhaul Dynamic**: the GUI is UIOD-based, and the pop job info block is taken whole from
-  UIOD 4.5.
+- **UI Overhaul Dynamic**: the GUI is UIOD-based.
 
 Only the changes marked `# BPVR-Layout`, the settings file and the store texts are ours.
 
@@ -37,7 +36,7 @@ Only the changes marked `# BPVR-Layout`, the settings file and the store texts a
 | `BPVR - City 9 Slot` (3575491852) | `@BPV_CITY_SLOT = 8` |
 | `BPVR - 3 City Zones` (3575502878) | `@BPV_CITY_ZONES = 3`, and its `common/inline_scripts/districts/BPV_district_slots.txt` (government + 3 zone lines; overrides the core's, so this mod loads after the core) |
 | `BPVR - 4 Zone Slots` (3575511840) | `@BPV_ZONE_SLOT = 4`, and its `common/defines/zz_bpv_zone_slots_override.txt` (`DEFAULT_MAX_PLANET_BUILDINGS_PER_ZONE = 4`) |
-| `BPV Reborn - Zone Single Row Mode` (3485762595) | `interface/`: its two files, changes marked `# BPVR-Layout` |
+| `BPV Reborn - Zone Single Row Mode` (3485762595) | `interface/`: its three files, changes marked `# BPVR-Layout` (only in `zzzz_planet_view.gui`) |
 
 All slot numbers, and the third-party-mod values the add-ons set, are in
 `common/scripted_variables/!!!bpvr_layout_settings.txt`. Changing one there also needs the file
@@ -63,7 +62,8 @@ Changes in `interface/zzzz_planet_view.gui` (top of file, nothing else touched):
   the district width now.
 - No scrollbar in the city district: `@main_district_scroll_x` 1200 → 208 (its window's height)
   and `@primary_zone_size_y` 1048 → 112 (2 rows). BPVR sized both for 10 zones and 20 rows; ours
-  are fixed at 3 and 2. The scrollbar stays defined, so content that does not fit still scrolls.
+  are fixed at 3 and 2. Since Single Row Mode 1.1.0 the scrollbar sits on the government zone,
+  which at 2 rows holds all 8 slots, so it does not show.
   The rural districts' scrollbar stays as in UIOD.
 
 ## Playset
@@ -81,14 +81,16 @@ scripts/link-mod.sh stellaris-mod-BPVR-Layout/bpvr_layout
 
 ## Updating from upstream
 
-When Single Row Mode updates, copy its two `interface/` files over these and re-apply the five
-variables above (`diff` against the Workshop copy shows only those lines today).
+When Single Row Mode updates, merge its new files onto ours three-way. The base is its previous
+version: the commit that last took it over (2026-11-25, Single Row Mode 1.1.0) with our
+`# BPVR-Layout` lines put back to its values. Then
+`git merge-file -p <ours> <base> <new upstream>`: conflicts come only where upstream touched a
+line we changed. Afterwards `diff` against the Workshop copy must show nothing but
+`# BPVR-Layout` lines. The other two files carry none of our changes: copy them over.
 
-Also taken over, from UI Overhaul Dynamic 4.5 (found comparing with `BPV Reborn - All-in-One`,
-3824868657, v1.5.0, on 2026-11-10): the pop job info block. Single Row Mode's copy predates 4.5
-and names its faction line `pop_faction`; 4.5 (vanilla and UIOD) has `pop_factions` plus a new
-`wanted_factions` line, so the rows below move down 20 px and the box grows to 280. Re-apply this
-too after an upstream copy (`diff` that block against UIOD's `interface/planet_view.gui`).
+Until 1.1.0 we carried UIOD 4.5's pop job info block (`pop_factions` plus `wanted_factions`) because
+Single Row Mode's predated 4.5. 1.1.0 has UIOD 4.6's, identical line for line, so it is upstream's
+again.
 
 What else All-in-One changes, and why we skip it:
 - Merges the core and the add-ons into one mod (12 / 6 / 4 zones) — we keep them separate.

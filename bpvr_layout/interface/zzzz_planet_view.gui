@@ -16,12 +16,10 @@
 
 @ROW_FACTOR = 1 # Change this to switch between 1 row and 2 row planet view
 
-# move the planet resources box to the side window
+# Keep colony production and deficit clear of the widened districts.
 @resource_offset_x = 0 # BPVR-Layout: Colony Production back beside the city district, as in UIOD (BPVR: 315, in the side column)
 @resource_offset_y = 0 # BPVR-Layout (BPVR: -190)
 @resource_box_width = 206 # BPVR-Layout: the room right of the city zones — 880 - 666 - margins (UIOD: 300)
-
-# Move down the build queue to leave space for resources, also shrink the inner space accordingly
 @build_queue_offset_y = 0 # BPVR-Layout: the side column no longer holds Colony Production (BPVR: 185)
 
 # Widen the districts window, also shrink the sencodary districts space
@@ -480,7 +478,7 @@ guiTypes = {
 				position = { x = 0 y = 424 }
 				orientation = center_up
 				centerPosition = yes
-				scale = 0.5
+				scale = 1
 			}
 			containerWindowType = {
 				name = "arkship_header_info"
@@ -589,8 +587,8 @@ guiTypes = {
 			}
 			containerWindowType = {
 				name = "systems_header_container"
-				position = { x = 10 y = 199 }
-				size = { width = 240 height = 38 }
+				position = { x = 10 y = 199 } # Modified by BPVR
+				size = { width = 240 height = 38 } # Modified by BPVR
 				background = {
 					name = "systems_header_bg"
 					spriteType = "GFX_black_box_planet_view"
@@ -600,7 +598,7 @@ guiTypes = {
 					font = "font_text_16"
 					text = "SYSTEMS"
 					position = { x = 0 y = 0 }
-					maxWidth = 240
+					maxWidth = 240 # Modified by BPVR
 					maxHeight = 38
 					fixedSize = yes
 					format = center
@@ -609,17 +607,17 @@ guiTypes = {
 			}
 			gridBoxType = {
 				name = "arkship_buildings_grid"
-				position = { x = 10 y = 240 }
+				position = { x = 10 y = 240 } # Modified by BPVR
 				size = { width = 120 height = 180 }
 				format = "UPPER_LEFT"
 				slotSize = { width = 60 height = 60 }
 				add_horizontal = yes
-				max_slots_horizontal = 4
+				max_slots_horizontal = 4 # Modified by BPVR
 			}
 			containerWindowType = {
 				name = "modules_header_container"
-				position = { x = 650 y = 199 }
-				size = { width = 240 height = 38 }
+				position = { x = 650 y = 199 } # Modified by BPVR
+				size = { width = 240 height = 38 } # Modified by BPVR
 				background = {
 					name = "modules_header_bg"
 					spriteType = "GFX_black_box_planet_view"
@@ -629,7 +627,7 @@ guiTypes = {
 					font = "font_text_16"
 					text = "STARBASE_MODULES"
 					position = { x = 0 y = 0 }
-					maxWidth = 240
+					maxWidth = 240 # Modified by BPVR
 					maxHeight = 38
 					fixedSize = yes
 					format = center
@@ -638,16 +636,16 @@ guiTypes = {
 			}
 			gridBoxType = {
 				name = "arkship_modules_grid"
-				position = { x = 650 y = 240 }
+				position = { x = 650 y = 240 } # Modified by BPVR
 				size = { width = 120 height = 180 }
 				format = "UPPER_LEFT"
 				slotSize = { width = 58 height = 58 }
 				add_horizontal = yes
-				max_slots_horizontal = 4
+				max_slots_horizontal = 4 # Modified by BPVR
 			}
 			containerWindowType = {
 				name = "spinal_header_container"
-				position = { x = 380 y = 199 }
+				position = { x = 380 y = 199 } # Modified by BPVR
 				size = { width = 136 height = 38 }
 				background = {
 					name = "spinal_header_bg"
@@ -667,16 +665,16 @@ guiTypes = {
 			}
 			gridBoxType = {
 				name = "arkship_spinal_mount_grid"
-				position = { x = 420 y = 240 }
+				position = { x = 420 y = 240 } # Modified by BPVR
 				size = { width = 60 height = 60 }
 				format = "UPPER_LEFT"
 				slotSize = { width = 58 height = 58 }
 				add_horizontal = yes
-				max_slots_horizontal = 4
+				max_slots_horizontal = 4 # Modified by BPVR
 			}
 			containerWindowType = {
 				name = "view_contract_header_container"
-				position = { x = 640 y = 605 }
+				position = { x = 640 y = 605 } # Modified by BPVR
 				size = { width = 220 height = 38 }
 				background = {
 					name = "view_contract_header_bg"
@@ -698,7 +696,7 @@ guiTypes = {
 			buttonType = {
 				name = "view_contract"
 				size = { x = 170 y = 42 }
-				position = { x = 665 y = 655 }
+				position = { x = 665 y = 655 } # Modified by BPVR
 				quadTextureSprite = "GFX_tiling_button_standard_seethrough"
 				buttonFont = "font_text_14"
 				clicksound = "tab_click"
@@ -706,8 +704,8 @@ guiTypes = {
 			}
 			containerWindowType = {
 				name = "lower_systems_header_container"
-				position = { x = 325 y = 530 }
-				size = { width = 240 height = 38 }
+				position = { x = 325 y = 530 } # Modified by BPVR
+				size = { width = 240 height = 38 } # Modified by BPVR
 				background = {
 					name = "lower_systems_header_bg"
 					spriteType = "GFX_black_box_planet_view"
@@ -717,7 +715,7 @@ guiTypes = {
 					font = "font_text_16"
 					text = "SYSTEMS"
 					position = { x = 0 y = 0 }
-					maxWidth = 240
+					maxWidth = 240 # Modified by BPVR
 					maxHeight = 38
 					fixedSize = yes
 					format = center
@@ -726,7 +724,7 @@ guiTypes = {
 			}
 			gridBoxType = {
 				name = "arkship_lower_buildings_grid"
-				position = { x = 326 y = 570 }
+				position = { x = 326 y = 570 } # Modified by BPVR
 				size = { width = 240 height = 60 }
 				format = "UPPER_LEFT"
 				slotSize = { width = 60 height = 60 }
@@ -736,7 +734,7 @@ guiTypes = {
 			# Arkship Fleet UI
 			containerWindowType = {
 				name = "fleet_status_container"
-				position = { x = 30 y = 605 }
+				position = { x = 30 y = 605 } # Modified by BPVR
 				size = { width = 220 height = 38 }
 				background = {
 					name = "fleet_status_bg"
@@ -759,7 +757,7 @@ guiTypes = {
 				name = "arkship_orders_text"
 				font = "font_text_14"
 				text = "ORDERS"
-				position = { x = 35 y = 655 }
+				position = { x = 35 y = 655 } # Modified by BPVR
 				maxWidth = 210
 				maxHeight = 32
 				fixedSize = yes
@@ -1103,7 +1101,7 @@ guiTypes = {
 				origo = center_up
 				background = {
 					name = "decision_progress_bg"
-					spriteType = "GFX_dark_green_area_framed_cut" 					
+					spriteType = "GFX_dark_green_area_framed_cut"
 					#alwaysTransparent = yes
 				}
 				instantTextBoxType = {
@@ -1373,6 +1371,25 @@ guiTypes = {
 					}
 				}
 			}
+			containerWindowType = {
+				name = "ideology_window"
+				position = { x = 685 y = 0 }
+				size = { width = 154 height = 50 }
+				clipping = no
+				iconType = {
+					name = "ideology_separator"
+					spriteType = "GFX_planet_info_separator"
+					position = { x = 0 y = 5 }
+				}
+				overlappingElementsBoxType = {
+					name = "ideology_flags"
+					position = { x = 8 y = -4 }
+					size = { x = 150 y = 40 }
+					spacing = 2.0
+					format = left
+					first_on_top = yes
+				}
+			}
 		}
 		### Planet Summary Content
 		containerWindowType = {
@@ -1631,7 +1648,7 @@ guiTypes = {
 						slotSize = { width = 288 height = @[ 110 + 75 * ROW_FACTOR ] } # Modified by BPVR # Single: 185 | Double: 260
 						add_horizontal = yes
 						max_slots_horizontal = 3
-						# max_slots_vertical = 1
+						# max_slots_vertical = 1 # Modified by BPVR
 					}
 				}
 				containerWindowType = {
@@ -1700,9 +1717,7 @@ guiTypes = {
 				containerWindowType = {
 					name = "planetary_resources"
 					size = { width = @resource_box_width height = @[178 + main_district_size_dy] } # BPVR-Layout: as tall as the city district (UIOD: 300 x 178)
-
 					position = { x = @[-10 + resource_offset_x] y = @[107 + resource_offset_y] } # BPVR-Layout: y = 107 at every resolution, like districts_container (BPVR: 207 / 147 / 107)
-
 					orientation = upper_right
 					origo = upper_right
 					background = {
@@ -3354,7 +3369,7 @@ guiTypes = {
 						smoothListBoxType = {
 							name = "armies_list"
 							position = { x = 10 y = 5 }
-							size = { x = 480 y = 420 }
+							size = { x = 378 y = 420 }
 							spacing = 4
 							scrollbarType = "standardlistbox_slider_thick"
 							autohide_scrollbar = yes
@@ -4538,7 +4553,7 @@ guiTypes = {
 						name = "species_rights"
 						font = "font_text_14"
 						text = "species rights go here"
-						position = { x = 20 y = 656 }
+						position = { x = 20 y = 696 }
 						maxWidth = 395
 						maxHeight = 128
 						if_scaled_resolution = {
@@ -4576,9 +4591,10 @@ guiTypes = {
 						shortcut = "T"
 					}
 				}
+				@pop_info_lines = 14
 				containerWindowType = {
 					name = "pop_job_info"
-					size = { width = -22 height = 230 }
+					size = { width = -22 height = 270 }
 					position = { x = 18 y = 451 }
 					verticalScrollbar = "right_vertical_slider_thick_small"
 					smooth_scrolling = yes
@@ -4599,7 +4615,7 @@ guiTypes = {
 					}
 					containerWindowType = {
 						name = "force_scroll"
-						size = { width = 100%% height = 280 } # BPVR-Layout: pop job info block (to "overlord_upkeep") taken from UI Overhaul Dynamic 4.5 — "pop_factions" + "wanted_factions" replace 4.4's "pop_faction" (BPVR: 256)
+						size = { width = 100%% height = @[ pop_info_lines * 20 ] }
 					}
 					instantTextBoxType = {
 						name = "job_type"
@@ -5284,7 +5300,7 @@ guiTypes = {
 		containerWindowType = {
 			name = "zone"
 			size = { width = @[secondary_district_slot_h * 52 + 8] height = @[secondary_district_slot_v * 52 * ROW_FACTOR + 8] } # modified by BPVR # Single: h=112 | Double: h=216
-			position = { x = 110 y = 35 }
+			position = { x = 110 y = 35 } # Modified by BPVR
 			clipping = no
 			background = {
 				name = "zone"
@@ -5314,7 +5330,7 @@ guiTypes = {
 				slotSize = { width = 52 height = 52 } # modified by BPVR
 				add_horizontal = yes
 				max_slots_horizontal = @secondary_district_slot_h # modified by BPVR
-				#max_slots_vertical = 2
+				#max_slots_vertical = 2 # Modified by BPVR
 			}
 			iconType = {
 				name = "progressbar"
@@ -5360,10 +5376,9 @@ guiTypes = {
 		size = { width = @[570 + main_district_size_dx] height = @main_district_scroll_x } # modified by BPVR
 		background = {
 			name = "districts_window_background"
-			spriteType = "GFX_invisible"
+			spriteType = "GFX_dark_area"
 			alwaysTransparent = yes
 		}
-
 		buttonType = {
 			name = "selection_highlight"
 			spriteType = "GFX_glow_tile_orange_no_padding"
@@ -5490,7 +5505,6 @@ guiTypes = {
 				vertical_alignment = center
 			}
 		}
-
 		# Primary Zone
 		containerWindowType = {
 			name = "zone"
@@ -5526,7 +5540,7 @@ guiTypes = {
 				slotSize = { width = 52 height = 53 }
 				add_horizontal = yes
 				max_slots_horizontal = @primary_zone_slot_h # modified by BPVR
-				#max_slots_vertical = 2
+				#max_slots_vertical = 2 # Modified by BPVR
 			}
 			iconType = {
 				name = "progressbar"
@@ -5576,7 +5590,7 @@ guiTypes = {
 			slotSize = { width = @secondary_zone_size_x height = @[53 * ROW_FACTOR] } # modified by BPVR # Single: 53 | Double: 106
 			add_horizontal = yes
 			max_slots_horizontal = 1
-			#max_slots_vertical = 3
+			#max_slots_vertical = 3 # Modified by BPVR
 		}
 	}
 	# 3 width
@@ -5585,13 +5599,9 @@ guiTypes = {
 		size = { width = @[570 + main_district_size_dx - 5] height = @main_district_scroll_x } # BPVR-Layout: follows the district width and height (BPVR: 865 x 260)
 		background = {
 			name = "districts_window_background"
-			spriteType = "GFX_invisible"
+			spriteType = "GFX_dark_area"
 			alwaysTransparent = yes
 		}
-
-		verticalScrollbar = "right_vertical_slider_thick"
-		smooth_scrolling = yes
-
 		buttonType = {
 			name = "selection_highlight"
 			spriteType = "GFX_glow_tile_orange_no_padding"
@@ -5633,7 +5643,7 @@ guiTypes = {
 		}
 		buttonType = {
 			name = "build_district"
-			position = { x = -103 y = -6 }
+			position = { x = -93 y = -6 }
 			orientation = upper_right
 			spriteType = "GFX_button_animated_75_24"
 			buttonFont = "font_text_14"
@@ -5718,7 +5728,6 @@ guiTypes = {
 				vertical_alignment = center
 			}
 		}
-
 		# Primary Zone
 		containerWindowType = {
 			name = "zone"
@@ -5754,7 +5763,7 @@ guiTypes = {
 				slotSize = { width = 52 height = 53 }
 				add_horizontal = yes
 				max_slots_horizontal = @primary_zone_slot_h # modified by BPVR
-				#max_slots_vertical = 2
+				#max_slots_vertical = 2 # Modified by BPVR
 			}
 			iconType = {
 				name = "progressbar"
@@ -5803,8 +5812,8 @@ guiTypes = {
 			format = "UPPER_LEFT"
 			slotSize = { width = @secondary_zone_size_x height = @[53 * ROW_FACTOR] } # modified by BPVR # Single: 53 | Double: 106
 			add_horizontal = yes
-			max_slots_horizontal = 1
-			#max_slots_vertical = 3
+			max_slots_horizontal = 2
+			#max_slots_vertical = 3 # Modified by BPVR
 		}
 	}
 	
@@ -5861,7 +5870,7 @@ guiTypes = {
 			slotSize = { width = 52 height = 52 } # modified by BPVR
 			add_horizontal = yes
 			max_slots_horizontal = @secondary_zone_slot_h # modified by BPVR
-			#max_slots_vertical = 1
+			#max_slots_vertical = 1 # Modified by BPVR
 		}
 		buttonType = {
 			name = "zone_button"
