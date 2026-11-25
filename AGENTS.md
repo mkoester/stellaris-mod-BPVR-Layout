@@ -19,11 +19,24 @@ Slots`, kept as a subscription (its district and zone overrides follow game patc
   Expected error.log noise without Gigastructures: `Inexistent sprite type "GFX_*giga_birch*"`
   and `Gui type … is missing a name` from `zzzz_bpvr_giga_gui_birch_districts_uiod.gui`
   (Sakura's file, kept byte-identical; seen 2026-11-18). Cosmetic, not a finding.
+  Likewise `Inexistent sprite type "GFX_sxx_button_district_*"` from `zzzz_sxx_districts_ui.gui`
+  (the `sxx_*` districts' mod is not installed; seen 2026-11-25).
 - Slot counts are BPVR scripted variables (`@BPV_CITY_SLOT`, `@BPV_ZONE_SLOT`,
   `@BPV_CITY_ZONES`), first definition wins; the core's help files explain them
   (`steamapps/workshop/content/281990/3576125834/help/`).
 
 ## Game 4.6 (2026-11-25): rebased onto the 4.6 upstreams, not yet checked in game
+
+**Blocked (2026-11-25): the BPVR core's update of that day crashes 4.6.0 at random.** With
+`BPVR - More Building Slots` (3576125834, Workshop files 16:17) enabled, 10 of 12 sessions crashed
+with SIGSEGV, 9 while loading (about 15-20 s after the last `error.log` line) and one at exit;
+already with only the core, UIOD and Single Row Mode. 0 of 3 without it (UIOD on). Not the
+cause: our Layout (crashed without it), the load order (both orders crashed and loaded), the
+game files (Steam's check replaced nothing), kernel or driver (unchanged since 2026-11-21, when
+yesterday's clean sessions ran). Still open: two clean sessions (launch + exit) with the core
+off, a fresh download of the core (unsubscribe/resubscribe), then a report on its Workshop page
+with a crash folder. The user upgraded the system and rebooted afterwards: count from scratch
+after a kernel or driver change. Crash folders `stellaris_20261125_162053` to `_170214`.
 
 Upstream updated on 2026-11-25 (Workshop files of that date): the BPVR core now writes 4.6's
 `included_buildings` in its zone copies (the 4.6.0 break: `error.log` "Unexpected token:
