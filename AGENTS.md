@@ -37,6 +37,28 @@ yesterday's clean sessions ran). Still open: two clean sessions (launch + exit) 
 off, a fresh download of the core (unsubscribe/resubscribe), then a report on its Workshop page
 with a crash folder. The user upgraded the system and rebooted afterwards: count from scratch
 after a kernel or driver change. Crash folders `stellaris_20261125_162053` to `_170214`.
+2026-11-26, mkMac2014: reproduced (core + UIOD + Single Row Mode, `stellaris_20261126_081421`,
+same stack region `+0x123edaa`); the user saw it on 3 machines. Clean launches (09:31, 09:36, 09:41) with
+`BPVR - City 12 Slot`, `- 3 City Zones`, `- 6 Zone Slots` added (pure overrides of
+`@BPV_CITY_SLOT`/`@BPV_ZONE_SLOT`/`@BPV_CITY_ZONES`, `BPV_district_slots.txt` and
+`DEFAULT_MAX_PLANET_BUILDINGS_PER_ZONE`, which our Layout overrides too), then the 4th crashed
+(`stellaris_20261126_094350`, `+0x123eda7`, the same chain): the add-ons do not fix it. No mods: 5 of 5 clean.
+UIOD alone: a crash at run 4 or 5 (`stellaris_20261126_101231`), but not this one: SIGABRT, not
+SIGSEGV, an uncaught C++ exception in a worker thread unwinding through `libsteam_api.so`
+(`+0x12fbcc7`), 20 s after `error.log` line 34 (the mod list scan; the BPVR crashes reach ~150
+lines, the end of database loading). Not counted against UIOD; the further UIOD-only runs (last
+10:25) were clean. Core + UIOD, no Single Row Mode: the first run crashed
+(`stellaris_20261126_103106`, SIGSEGV, `+0x123edaa`, the same chain): Single Row Mode is not needed.
+**The core alone crashes** (`stellaris_20261126_103327`, `+0x123eda7`, the same chain). Its files,
+object by object against vanilla 4.6 with its variables at their defaults, are vanilla apart from
+the variables, except the district `zone_slots`: its `BPV_district_slots` inline script, which
+gives rural districts their urban slot twice (`slot_energy`, `slot_energy_urban`,
+`slot_energy_urban`; vanilla 4.6 has the first two). Whether that is new in 4.6 is unknown (no
+old core files, the extraction does not record zone slots).
+Resubscribed (all 86 files rewritten 10:39): the core alone crashed again (`_104048`; `_103843`
+too, a minute before the files' timestamp). Not a corrupt download. Next: the report on its
+Workshop page (`meta.yml`'s `LaunchArguments` hold the Paradox account ID and a session token:
+drop that line before sharing a crash folder).
 
 Upstream updated on 2026-11-25 (Workshop files of that date): the BPVR core now writes 4.6's
 `included_buildings` in its zone copies (the 4.6.0 break: `error.log` "Unexpected token:
