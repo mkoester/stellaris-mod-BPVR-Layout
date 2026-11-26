@@ -31,7 +31,8 @@ Slots`, kept as a subscription (its district and zone overrides follow game patc
 Workshop page, 3576125834, 2026-11-26). Its workaround, core 1.2.0 (Workshop files 2026-11-26
 15:43), fixes it: the core alone, 3 of 3 native launches clean on mkDell (2026-11-26, 15:56–16:00;
 before, 3 of 3 crashed), no "already exists" line for a building in `error.log`, no crash folder.
-Next: the in-game check of our Layout on top of it.**
+With UIOD and our Layout (16:03, mkDell): loaded and generated a galaxy, `error.log` only the
+known noise, and the user reports the Layout working in game. Next: upload.**
 - Core 1.2.0 (2026-11-26, read on mkDell): the two files are renamed to vanilla's,
   `00_capital_buildings.txt` and `11_primitive_buildings.txt`, so they replace vanilla's files
   instead of redefining keys. Each holds all of vanilla 4.6.0's keys (20 and 28) and differs only
