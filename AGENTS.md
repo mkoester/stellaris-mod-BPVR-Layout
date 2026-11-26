@@ -27,11 +27,24 @@ Slots`, kept as a subscription (its district and zone overrides follow game patc
 
 ## Game 4.6 (2026-11-25): rebased onto the 4.6 upstreams, not yet checked in game
 
-**Blocked: the BPVR core's update of 2026-11-25 crashes 4.6.0 while loading, at random. Reported
-on its Workshop page (3576125834) on 2026-11-26; cause found the same day (below), waiting for the
-author's fix.** When it comes, tally the core alone (native, 3+ launches to the main menu) before
-the in-game check.
-- Cause (2026-11-26, the author's guess, confirmed by tally): the core's `common/buildings/`
+**The BPVR core's update of 2026-11-25 crashed 4.6.0 while loading, at random (reported on its
+Workshop page, 3576125834, 2026-11-26). Its workaround, core 1.2.0 (Workshop files 2026-11-26
+15:43), is not yet tallied:** tally the core alone (native, 3+ launches to the main menu, no
+"already exists" line for a building in `error.log`) before the in-game check.
+- Core 1.2.0 (2026-11-26, read on mkDell): the two files are renamed to vanilla's,
+  `00_capital_buildings.txt` and `11_primitive_buildings.txt`, so they replace vanilla's files
+  instead of redefining keys. Each holds all of vanilla 4.6.0's keys (20 and 28) and differs only
+  by `branch_office_target_max_buildings_add = @BPV_CORP_SLOT_ADD_*` and comments. A full-file
+  override must follow every patch that touches those files: diff them against the game after
+  each update.
+- Engine cause (Paradox forum bug report of 2026-10-18, 4.5.2, Windows build reverse-engineered,
+  quoted by Sakura on 2026-11-26 — "Paradox should take responsibility"): redefining a vanilla
+  building destroys the old one's modifier records but leaves their entries in the `modifier:`
+  parser's global registry; a post-load loop then writes modifier ids into the freed objects (use
+  after free). Linux's allocator puts live objects there and crashes, native and Proton alike;
+  native Windows usually survives. Our guess sent to the author (links by key, `convert_to`) was
+  wrong.
+- Cause found (2026-11-26, the author's guess, confirmed by tally): the core's `common/buildings/`
   files, `00_capital_buildings_game.txt` and `11_primitive_buildings_game.txt`, define 14 vanilla
   buildings again under another file name (`error.log`: "Object with key: building_capital
   already exists, using the one at … `_game.txt`"). A local copy of the core without those two
