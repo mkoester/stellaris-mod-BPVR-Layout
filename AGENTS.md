@@ -28,8 +28,27 @@ Slots`, kept as a subscription (its district and zone overrides follow game patc
 ## Game 4.6 (2026-11-25): rebased onto the 4.6 upstreams, not yet checked in game
 
 **Blocked: the BPVR core's update of 2026-11-25 crashes 4.6.0 while loading, at random. Reported
-on its Workshop page (3576125834) on 2026-11-26; waiting for the author's reply.** When a fix
-comes, tally the core alone (native, 3+ launches to the main menu) before the in-game check.
+on its Workshop page (3576125834) on 2026-11-26; cause found the same day (below), waiting for the
+author's fix.** When it comes, tally the core alone (native, 3+ launches to the main menu) before
+the in-game check.
+- Cause (2026-11-26, the author's guess, confirmed by tally): the core's `common/buildings/`
+  files, `00_capital_buildings_game.txt` and `11_primitive_buildings_game.txt`, define 14 vanilla
+  buildings again under another file name (`error.log`: "Object with key: building_capital
+  already exists, using the one at … `_game.txt`"). A local copy of the core without those two
+  files: 6 of 6 launches clean (4 confirmed in the logs; with UIOD). The Workshop core the same
+  day, same machine: 2 of 4 crashed. Its other 78 duplicate keys (districts, zones, starbase
+  levels, agreement terms) stay in the copy and do not crash. Sent with the result: a guess,
+  unverifiable (stripped binary), that other buildings link to the capitals by key
+  (`convert_to` in `13_fallen_empire_buildings.txt` and `21_wilderness_buildings.txt`,
+  `upgrades` in `16_first_contact_buildings.txt`) and a parallel load sometimes leaves a link to
+  the discarded vanilla copy. Not a rename fix: the core's files hold 13 of the vanilla file's 20
+  buildings and 1 of 28. The patch notes since 4.5.0 say only that duplicate keys now always log
+  an error (4.5.1); nothing about them crashing.
+- Testing a change to a Workshop mod: Steam restores a deleted or moved file of a subscribed item
+  at the next launch, unnoticed (the files keep their old dates). Copy the item to a local folder,
+  drop `remote_file_id` and rename it in `descriptor.mod`, `slink` it, and enable it instead of
+  the Workshop item; check each run in `dlc_load.json` and `error.log` before the next launch
+  (`logs/` is rewritten at each launch).
 - Tally (2026-11-26, mkMac2014; also seen on 2 more machines): no mods 0 of 5 crashed, UIOD
   alone 0 of 5+, **the core alone 3 of 3** (also after unsubscribe/resubscribe), core + UIOD
   (± Single Row Mode, ± the add-ons City 12 Slot / 3 City Zones / 6 Zone Slots) 3 of 6.
